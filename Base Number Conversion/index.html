@@ -1,53 +1,158 @@
 <!DOCTYPE html>
 <html>
 	<head>
-    	<title>Base Number Conversion</title>
+    	<title>การแปลงเลขฐาน</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link class="glyphicon glyphicon-sound-7-1" rel="shortcut icon">
+        <link href="favicon.png" rel="shortcut icon">
 
         <!-- load the Bootstrap CSS file -->
-        <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
-        <link href="css/bootstrap-theme.min.css" rel="stylesheet">
+        <link href="css/bootstrap.css" rel="stylesheet" media="screen">
+        <link href="css/bootstrap-theme.css" rel="stylesheet">
         
 	</head>
     
+    <style>
+	
+	.jumbotron {
+		background: URL('bg.png');
+		background-repeat:no-repeat;
+		background-size: 80% cover;
+	}
+	
+	.list-group {
+		padding-left: 5%;
+		padding-right: 15%;
+	}
+	
+	.topic {
+		padding-left: 5%;
+		padding-bottom: 1%;
+		color:#FFF;
+	}
+
+	</style>
+    
     <body>
     
+    	 <!-- Display group members dialog -->
+        <div class="modal fade" id="MemberDialog" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title">สมาชิกกลุ่ม</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="panel panel-default">
+                          	<div class="panel-heading">รายชื่อสมาชิกกลุ่ม</div>
+                          
+                              <table classs="table" width="537" border="true" height="50" cellpadding="3" bordercolor="#CCCCCC">
+                                  <thead>
+                                      <tr>
+                                      	  <th>No.</th>
+                                          <th>ชื่อ</th>
+                                          <th>นามสกุล</th>
+                                          <th>รหัสนิสิต</th>
+                                      </tr>
+                                  </thead>
+                                  
+                                  <tbody>
+                                      <tr>
+                                          <td>1</td>
+                                          <td></td>
+                                          <td></td>
+                                          <td></td>
+                                      </tr>
+                                      <tr>
+                                      	  <td>2</td>
+                                          <td>นายวรวุฒิ</td>
+                                          <td>เนตรลือชา</td>
+                                          <td>5510405791</td>
+                                      </tr>
+                                      <tr>
+                                      	  <td>3</td>
+                                          <td></td>
+                                          <td></td>
+                                          <td></td>
+                                      </tr>
+                                  </tbody>
+                              </table>
+                      	</div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-success" data-dismiss="modal"><span class="glyphicon glyphicon-check"></span> ตกลง </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+      
     	<div class="navbar navbar-inverse navbar-fixed-top">
         	<div class="container">
             	<div class="navbar-header">
                 	<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"></button>
-                    <a class="navbar-brand" href="#">Base Number Conversion</a>
+                    <a class="navbar-brand" href="index.html">การแปลงเลขฐาน</a>
 				</div>
                 
 			<div class="navbar-collapse collapse">
             	<ul class="nav navbar-nav">
                 	<li class="active">
-                    	<a href="#"><span class="glyphicon glyphicon-home"></span> Home</a>
+                    	<a href="#"><span class="glyphicon glyphicon-home"></span> หน้าแรก</a>
                     </li>
                     <li class="dropdown">
-                    	<a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-list"></span> Jump to<b class="caret"></b></a>
+                    	<a href="" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-list"></span> ข้ามไปที่<b class="caret"></b></a>
                     		<ul class="dropdown-menu">
                         		<li>
-                            		<a href="#">Binary to Decimal</a>
+                            		<a href="#">แปลงจากเลขฐานสองเป็นเลขฐานสิบ</a>
                             	</li>
                             	<li>
-                            		<a href="#">Decimal to Binary</a>
+                            		<a href="#">แปลงจากเลขฐานสิบเป็นเลขฐานสอง</a>
                             	</li>
                          	</ul>
                      </li>
+                     <li class="dropdown">
+                     	<a href="" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-pencil"></span> แบบทดสอบ<b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        	<li>
+                            </li>
+                        </ul>
+                    </li>
                  </ul>
                  
                  <ul class="nav navbar-nav navbar-right">
-					<li>
-                     	<a href="#"><span class="glyphicon glyphicon-user"></span> Group Members</a>
-					</li>
-                 </ul>
+            	<li>
+                	<a href="#MemberDialog" data-toggle="modal"><span class="glyphicon glyphicon-user"></span> สมาชิกกลุ่ม</a>
+                </li>
+            </ul>
+            
         </div>
     </div>
-  
-  	
-  
+    
+    <div class="jumbotron">
+    	<div class="container">
+        	<h1>การแปลงเลขฐาน</h1>
+            <p>01418231 Data Structure</p>
+        </div>
+    </div>
+    
+    <div class="topic">
+    	<h3>กรุณาเลือกหัวข้อ ที่ต้องการจะศึกษา</h3>
+    </div>
+    
+    <div class="list-group">
+    	<a href="#" class="list-group-item">
+        	<h4 class="list-group-item-heading"><span class="glyphicon glyphicon-hand-right"></span> การแปลงระบบจำนวนจากฐานสิบไปยังฐานสอง<span class="badge pull-right"><span class="glyphicon glyphicon-check"></span> ศึกษาไปแล้ว</span></h4>
+            <p class="list-group-item-text">การแปลงระบบจำนวน โดยใช้การหารยาว</p>
+        </a>
+        <a href="#" class="list-group-item">
+        	<h4 class="list-group-item-heading"><span class="glyphicon glyphicon-hand-right"></span> UI mockup test<span class="badge pull-right"><span class="glyphicon glyphicon-pushpin"></span> กำลังศึกษา</span></h4>
+            <p class="list-group-item-text">This is only an UI mockup test</p>
+        </a>
+        <a href="#" class="list-group-item">
+        	<h4 class="list-group-item-heading"><span class="glyphicon glyphicon-hand-right"></span> UI mockup test</h4>
+            <p class="list-group-item-text">This is only an UI mockup test</p>
+        </a>
+    </div>
+    
 		<!-- load the Jquery javascript library -->
 		<!-- Script loading were placed at the end because of improving in page loading speed. -->
         <script src="js/jquery-2.0.3.min.js"></script>
