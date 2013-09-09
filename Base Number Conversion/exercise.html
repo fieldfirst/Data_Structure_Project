@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="UTF-8">
+<head>
+    <title>การแปลงเลขฐาน - แบบฝึกหัด</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="favicon.png" rel="shortcut icon">
+
+    <!-- load the Bootstrap CSS file -->
+    <link href="css/bootstrap.css" rel="stylesheet" media="screen">
+    <link href="css/bootstrap-theme.css" rel="stylesheet">
+
+    <style>
+
+        body {
+
+            background-image: -webkit-gradient(linear, left 0%, left 100%, from(#3c3c3c), to(#222222));
+            background-image: -webkit-linear-gradient(top, #3c3c3c, 0%, #222222, 100%);
+            background-image: -moz-linear-gradient(top, #3c3c3c 0%, #222222 100%);
+            background-image: linear-gradient(to bottom, #3c3c3c 0%, #222222 100%);
+            background-repeat: repeat-x;
+            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff3c3c3c', endColorstr='#ff222222', GradientType=0);
+            margin-top: 3.5%;
+        }
+
+        .well {
+
+            width: 100%;
+
+        }
+
+        footer {
+            padding-left: 8%;
+            color: #ffffff;
+        }
+
+        .panel {
+
+            margin-top: 2%;
+        }
+
+        .input-group {
+            padding-right: 4%;
+        }
+
+        .panel li {
+            font-size: large;
+        }
+
+        .false {
+            background-color: #d59c8b;
+        }
+
+
+    </style>
+
+
+    <script>
+
+        window.onload = function(){
+
+            var count = 0;
+
+            $("body").css("display", "none");
+            $("body").fadeIn(2000);
+
+            var a = $("#chapter1 li input");
+            var label_1 = $("#a");
+
+            var text_2 = $("#2");
+            var label_2 = $("#b");
+
+            var text_3 = $("#3");
+            var label_3 = $("#c");
+
+            var text_4 = $("#4");
+            var label_4 = $("#d");
+
+//            text_1.keyup(function(){
+//                if (text_1.val() == text_1.data("ans")){
+//                    text_1.prop('disabled', true);
+//                    label_1.append('<span class="glyphicon glyphicon-check"> ถูกต้อง</span><br /><br />');
+//                }
+//                else if (text_1.val() == ""){
+//                    text_1.removeClass("false");
+//                }
+//                else {
+//                    text_1.addClass("false");
+//                }
+//            });
+
+            a.child("form-control").keyup(function(){
+                if (a.child("form-control").val() == a.child("form-control").data("ans")){
+                    a.child("form-control").prop('disabled', true);
+                    a.append('<span class="glyphicon glyphicon-check"> ถูกต้อง</span><br /><br />');
+                }
+                else if (text_1.val() == ""){
+                    a.child("form-control").removeClass("false");
+                }
+                else {
+                    a.child("form-control").addClass("false");
+                }
+            });
+
+        };
+
+    </script>
+
+</head>
+
+<body data-spy="scroll" data-target="#main-nav-bar" data-offset="120">
+
+<!-- Display group members dialog -->
+<div class="modal fade" id="MemberDialog" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">สมาชิกกลุ่ม</h4>
+            </div>
+            <div class="modal-body">
+                <div class="panel panel-default">
+                    <div class="panel-heading">รายชื่อสมาชิกกลุ่ม</div>
+
+                    <table classs="table" width="537" border="true" height="50" cellpadding="3" bordercolor="#CCCCCC">
+                        <thead>
+                        <tr>
+                            <th>No.</th>
+                            <th>ชื่อ</th>
+                            <th>นามสกุล</th>
+                            <th>รหัสนิสิต</th>
+                        </tr>
+                        </thead>
+
+                        <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>นายวรวุฒิ</td>
+                            <td>เนตรลือชา</td>
+                            <td>5510405791</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>นายพัชรวัฒน์</td>
+                            <td>วงศ์วศินกุล</td>
+                            <td>5510400714</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>นายปรีดี</td>
+                            <td>กิมานนท์</td>
+                            <td>5510405694</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p><b>กลุ่มที่ 14</b></p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success" data-dismiss="modal"><span class="glyphicon glyphicon-check"></span> ตกลง </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="navbar navbar-inverse navbar-fixed-top" id="main-nav-bar">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"></button>
+            <a class="navbar-brand" href="#">การแปลงระบบเลขฐาน</a>
+        </div>
+
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li class="active">
+                    <a href="#"><span class="glyphicon glyphicon-home"></span> หน้าแรก</a>
+                </li>
+                <li class="dropdown">
+                    <a href="" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-list"></span> ข้ามไปที่<b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li class="dropdown-header">แปลงจากเลขฐานสิบเป็นเลขฐานอื่น</li>
+                        <li>
+                            <a href="#">แปลงจากเลขฐานสิบเป็นเลขฐานสอง</a>
+                        </li>
+                        <li>
+                            <a href="#">แปลงจากเลขฐานสิบเป็นเลขฐานแปด</a>
+                        </li>
+                        <li>
+                            <a href="#">แปลงจากเลขฐานสิบเป็นเลขฐานสิบหก</a>
+                        </li>
+                        <li class="divider"></li>
+                        <li class="dropdown-header">แปลงจากเลขฐานอื่นเป็นเลขฐานสิบ</li>
+                        <li>
+                            <a href="#">แปลงจากเลขฐานสองเป็นเลขฐานสิบ</a>
+                        </li>
+                        <li>
+                            <a href="#">แปลงจากเลขฐานแปดเป็นเลขฐานสิบ</a>
+                        </li>
+                        <li>
+                            <a href="#">แปลงจากเลขฐานสิบหกเป็นเลขฐานสิบ</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-pencil"></span> แบบฝึกหัด<b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li class="dropdown-header">แปลงจากเลขฐานสิบเป็นเลขฐานอื่น</li>
+                        <li>
+                            <a href="#chapter1">แปลงจากเลขฐานสิบเป็นเลขฐานสอง</a>
+                        </li>
+                        <li>
+                            <a href="#chapter2">แปลงจากเลขฐานสิบเป็นเลขฐานแปด</a>
+                        </li>
+                        <li>
+                            <a href="#chapter3">แปลงจากเลขฐานสิบเป็นเลขฐานสิบหก</a>
+                        </li>
+                        <li class="divider"></li>
+                        <li class="dropdown-header">แปลงจากเลขฐานอื่นเป็นเลขฐานสิบ</li>
+                        <li>
+                            <a href="#chapter4">แปลงจากเลขฐานสองเป็นเลขฐานสิบ</a>
+                        </li>
+                        <li>
+                            <a href="#chapter5">แปลงจากเลขฐานแปดเป็นเลขฐานสิบ</a>
+                        </li>
+                        <li>
+                            <a href="#chapter6">แปลงจากเลขฐานสิบหกเป็นเลขฐานสิบ</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="#MemberDialog" data-toggle="modal"><span class="glyphicon glyphicon-user"></span> สมาชิกกลุ่ม</a>
+                </li>
+            </ul>
+
+        </div>
+    </div>
+</div>
+
+<!-- begin page body -->
+<div class="well well-lg">
+    <div class="container">
+        <h2>แบบฝึกหัด</h2>
+    </div>
+</div>
+
+<div class="container">
+<div id="chapter1">
+    <div class="panel panel-default">
+        <div class="panel-heading"><h4>แปลงจากเลขฐานสิบเป็นเลขฐานสอง</h4></div>
+        <ol>
+            <li id="a">
+                <h4>10</h4>
+                <div class="input-group">
+                    <input type="text" id="1" class="form-control" data-ans="1010">
+                    <span class="input-group-addon">ฐานสอง</span>
+                </div>
+                <br />
+            </li>
+
+            <li id="b">
+                <h4>36</h4>
+                <div class="input-group">
+                    <input type="text" id="2" class="form-control" data-ans="100100">
+                    <span class="input-group-addon">ฐานสอง</span>
+                </div>
+                <br />
+            </li>
+
+            <li id="c">
+                <h4>256</h4>
+                <div class="input-group">
+                    <input type="text" id="3" class="form-control" data-ans="100000000">
+                    <span class="input-group-addon">ฐานสอง</span>
+                </div>
+                <br />
+            </li>
+
+        </ol>
+    </div>
+</div>
+
+<div id="chapter2">
+    <div class="panel panel-default">
+        <div class="panel-heading"><h4>แปลงจากเลขฐานสิบเป็นเลขฐานแปด</h4></div>
+        <ol>
+            <li id="d">
+                <h4>20</h4>
+                <div class="input-group">
+                    <input type="text" id="4" class="form-control" data-ans="24">
+                    <span class="input-group-addon">ฐานแปด</span>
+                </div>
+                <br />
+            </li>
+
+            <li id="e">
+                <h4>36</h4>
+                <div class="input-group">
+                    <input type="text" id="5" class="form-control" data-ans="44">
+                    <span class="input-group-addon">ฐานแปด</span>
+                </div>
+                <br />
+            </li>
+
+            <li id="f">
+                <h4>126</h4>
+                <div class="input-group">
+                    <input type="text" id="6" class="form-control" data-ans="176">
+                    <span class="input-group-addon">ฐานแปด</span>
+                </div>
+                <br />
+            </li>
+
+        </ol>
+    </div>
+</div>
+
+<div id="chapter3">
+    <div class="panel panel-default">
+        <div class="panel-heading"><h4>แปลงจากเลขฐานสิบเป็นเลขฐานสิบหก</h4></div>
+        <ol>
+            <li id="g">
+                <h4>25</h4>
+                <div class="input-group">
+                    <input type="text" id="7" class="form-control" data-ans="19">
+                    <span class="input-group-addon">ฐานสิบหก</span>
+                </div>
+                <br />
+            </li>
+
+            <li id="h">
+                <h4>37</h4>
+                <div class="input-group">
+                    <input type="text" id="8" class="form-control" data-ans="25">
+                    <span class="input-group-addon">ฐานสิบหก</span>
+                </div>
+                <br />
+            </li>
+
+            <li id="i">
+                <h4>150</h4>
+                <div class="input-group">
+                    <input type="text" id="9" class="form-control" data-ans="96">
+                    <span class="input-group-addon">ฐานสิบหก</span>
+                </div>
+                <br />
+            </li>
+
+        </ol>
+    </div>
+</div>
+
+<div id="chapter4">
+    <div class="panel panel-default">
+        <div class="panel-heading"><h4>แปลงจากเลขฐานสองเป็นเลขฐานสิบ</h4></div>
+        <ol>
+            <li id="j">
+                <h4>110010</h4>
+                <div class="input-group">
+                    <input type="text" id="10" class="form-control" data-ans="50">
+                    <span class="input-group-addon">ฐานสิบ</span>
+                </div>
+                <br />
+            </li>
+
+            <li id="k">
+                <h4>10100</h4>
+                <div class="input-group">
+                    <input type="text" id="11" class="form-control" data-ans="20">
+                    <span class="input-group-addon">ฐานสิบ</span>
+                </div>
+                <br />
+            </li>
+
+            <li id="l">
+                <h4>1011010</h4>
+                <div class="input-group">
+                    <input type="text" id="12" class="form-control" data-ans="90">
+                    <span class="input-group-addon">ฐานสิบ</span>
+                </div>
+                <br />
+            </li>
+
+        </ol>
+    </div>
+</div>
+
+<div id="chapter5">
+    <div class="panel panel-default">
+        <div class="panel-heading"><h4>แปลงจากเลขฐานแปดเป็นเลขฐานสิบ</h4></div>
+        <ol>
+            <li id="m">
+                <h4>103</h4>
+                <div class="input-group">
+                    <input type="text" id="13" class="form-control" data-ans="67">
+                    <span class="input-group-addon">ฐานสิบ</span>
+                </div>
+                <br />
+            </li>
+
+            <li id="n">
+                <h4>144</h4>
+                <div class="input-group">
+                    <input type="text" id="14" class="form-control" data-ans="100">
+                    <span class="input-group-addon">ฐานสิบ</span>
+                </div>
+                <br />
+            </li>
+
+            <li id="o">
+                <h4>8</h4>
+                <div class="input-group">
+                    <input type="text" id="15" class="form-control" data-ans="10">
+                    <span class="input-group-addon">ฐานสิบ</span>
+                </div>
+                <br />
+            </li>
+
+        </ol>
+    </div>
+</div>
+
+<div id="chapter6">
+    <div class="panel panel-default">
+        <div class="panel-heading"><h4>แปลงจากเลขฐานสิบหกเป็นเลขฐานสิบ</h4></div>
+        <ol>
+            <li id="p">
+                <h4>50</h4>
+                <div class="input-group">
+                    <input type="text" id="16" class="form-control" data-ans="80">
+                    <span class="input-group-addon">ฐานสิบ</span>
+                </div>
+                <br />
+            </li>
+
+            <li id="q">
+                <h4>F</h4>
+                <div class="input-group">
+                    <input type="text" id="17" class="form-control" data-ans="15">
+                    <span class="input-group-addon">ฐานสิบ</span>
+                </div>
+                <br />
+            </li>
+
+            <li id="r">
+                <h4>100</h4>
+                <div class="input-group">
+                    <input type="text" id="18" class="form-control" data-ans="256">
+                    <span class="input-group-addon">ฐานสิบ</span>
+                </div>
+                <br />
+            </li>
+
+        </ol>
+    </div>
+</div>
+
+</div>
+
+
+<footer>
+    <p>จัดทำโดยกลุ่มที่ 14 [8/09/2013]</p>
+</footer>
+
+<!-- load the Jquery javascript library -->
+<!-- Script loading were placed at the end because of improving in page loading speed. -->
+<script src="js/jquery-2.0.3.min.js"></script>
+
+<!-- load the main Bootstrap javascript file -->
+<script src="js/bootstrap.min.js"></script>
+
+</html>
