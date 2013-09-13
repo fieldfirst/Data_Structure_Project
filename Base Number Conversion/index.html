@@ -3,6 +3,7 @@
 <head>
     <title>การแปลงเลขฐาน - หน้าแรก</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
     <link href="favicon.png" rel="shortcut icon">
 
     <!-- load the Bootstrap CSS file -->
@@ -76,48 +77,26 @@
                 $('#a').append('<span class="badge pull-right"><span class="glyphicon glyphicon-check"></span> ศึกษาครบแล้ว</span>');
             }
 
-            else if (sessionStorage.getItem("0") == "2"){
-                $('#a').append('<span class="badge pull-right"><span class="glyphicon glyphicon-pushpin"></span> กำลังศึกษา</span>');
-            }
 
             if (sessionStorage.getItem("1") == "1"){
                 $('#b').append('<span class="badge pull-right"><span class="glyphicon glyphicon-check"></span> ศึกษาครบแล้ว</span>');
-            }
-
-            else if (sessionStorage.getItem("1") == "2"){
-                $('#b').append('<span class="badge pull-right"><span class="glyphicon glyphicon-pushpin"></span> กำลังศึกษา</span>');
             }
 
             if (sessionStorage.getItem("2") == "1"){
                 $('#c').append('<span class="badge pull-right"><span class="glyphicon glyphicon-check"></span> ศึกษาครบแล้ว</span>');
             }
 
-            else if (sessionStorage.getItem("2") == "2"){
-                $('#c').append('<span class="badge pull-right"><span class="glyphicon glyphicon-pushpin"></span> กำลังศึกษา</span>');
-            }
 
             if (sessionStorage.getItem("3") == "1"){
                 $('#d').append('<span class="badge pull-right"><span class="glyphicon glyphicon-check"></span> ศึกษาครบแล้ว</span>');
-            }
-
-            else if (sessionStorage.getItem("3") == "2"){
-                $('#d').append('<span class="badge pull-right"><span class="glyphicon glyphicon-pushpin"></span> กำลังศึกษา</span>');
             }
 
             if (sessionStorage.getItem("4") == "1"){
                 $('#e').append('<span class="badge pull-right"><span class="glyphicon glyphicon-check"></span> ศึกษาครบแล้ว</span>');
             }
 
-            else if (sessionStorage.getItem("4") == "2"){
-                $('#e').append('<span class="badge pull-right"><span class="glyphicon glyphicon-pushpin"></span> กำลังศึกษา</span>');
-            }
-
             if (sessionStorage.getItem("5") == "1"){
                 $('#f').append('<span class="badge pull-right"><span class="glyphicon glyphicon-check"></span> ศึกษาครบแล้ว</span>');
-            }
-
-            else if (sessionStorage.getItem("5") == "2"){
-                $('#f').append('<span class="badge pull-right"><span class="glyphicon glyphicon-pushpin"></span> กำลังศึกษา</span>');
             }
 
             $("body").css("display", "none");
@@ -228,26 +207,29 @@
                 <li class="dropdown">
                     <a href="" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-list"></span> ข้ามไปที่<b class="caret"></b></a>
                     <ul class="dropdown-menu">
+                        <li>
+                            <a href="presentation.html#/intro">คำนำ</a>
+                        </li>
                         <li class="dropdown-header">แปลงจากเลขฐานสิบเป็นเลขฐานอื่น</li>
                         <li>
-                            <a href="#">แปลงจากเลขฐานสิบเป็นเลขฐานสอง</a>
+                            <a href="presentation.html#/test">แปลงจากเลขฐานสิบเป็นเลขฐานสอง</a>
                         </li>
                         <li>
-                            <a href="#">แปลงจากเลขฐานสิบเป็นเลขฐานแปด</a>
+                            <a href="presentation.html#/test">แปลงจากเลขฐานสิบเป็นเลขฐานแปด</a>
                         </li>
                         <li>
-                            <a href="#">แปลงจากเลขฐานสิบเป็นเลขฐานสิบหก</a>
+                            <a href="presentation.html#/test">แปลงจากเลขฐานสิบเป็นเลขฐานสิบหก</a>
                         </li>
                         <li class="divider"></li>
                         <li class="dropdown-header">แปลงจากเลขฐานอื่นเป็นเลขฐานสิบ</li>
                         <li>
-                            <a href="#">แปลงจากเลขฐานสองเป็นเลขฐานสิบ</a>
+                            <a href="presentation.html#/test">แปลงจากเลขฐานสองเป็นเลขฐานสิบ</a>
                         </li>
                         <li>
-                            <a href="#">แปลงจากเลขฐานแปดเป็นเลขฐานสิบ</a>
+                            <a href="presentation.html#/test">แปลงจากเลขฐานแปดเป็นเลขฐานสิบ</a>
                         </li>
                         <li>
-                            <a href="#">แปลงจากเลขฐานสิบหกเป็นเลขฐานสิบ</a>
+                            <a href="presentation.html#/test">แปลงจากเลขฐานสิบหกเป็นเลขฐานสิบ</a>
                         </li>
                     </ul>
                 </li>
@@ -337,9 +319,23 @@
             <div class="panel-body">
                 <ol>
                     <li>
-                        <a href="http://www.google.com">Google ?</a>
+                        <a href="https://en.wikipedia.org/wiki/Radix">Radix [Wikipedia]</a>
                     </li>
+                    <br />
+                    <li>
+                        <a href="https://th.wikipedia.org/wiki/%E0%B8%90%E0%B8%B2%E0%B8%99_(%E0%B8%A3%E0%B8%B0%E0%B8%9A%E0%B8%9A%E0%B9%80%E0%B8%A5%E0%B8%82)">ฐาน(ระบบเลข) [Wikipedia]</a>
+                    </li>
+                    <br />
+                    <li>
+                        <a href="https://simple.wikipedia.org/wiki/Base_(mathematics)">Base (Mathematics) [Wikipedia]</a>
+                    </li>
+                    <br />
+                    <li>
+                        <a href="http://www.pccl.ac.th/external_newsblog.php?links=1288">ระบบเลขฐาน [ร.ร. จุฬาภรณ์ราชวิทยาลัย ลพบุรี]</a>
+                    </li>
+                    <br />
                 </ol>
+                <p><i>Note : </i>ข้อมูลสืบค้นเมื่อ 10/09/2013</p>
             </div>
         </div>
     </div>
@@ -355,5 +351,8 @@
 
 <!-- load the main Bootstrap javascript file -->
 <script src="js/bootstrap.min.js"></script>
+
+
+</body>
 
 </html>

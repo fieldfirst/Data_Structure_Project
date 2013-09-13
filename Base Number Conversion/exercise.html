@@ -3,6 +3,7 @@
 <head>
     <title>การแปลงเลขฐาน - แบบฝึกหัด</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
     <link href="favicon.png" rel="shortcut icon">
 
     <!-- load the Bootstrap CSS file -->
@@ -58,46 +59,462 @@
 
         window.onload = function(){
 
-            var count = 0;
-
             $("body").css("display", "none");
             $("body").fadeIn(2000);
 
-            var a = $("#chapter1 li input");
-            var label_1 = $("#a");
+            $("#main-nav-bar ul li a[href^='#']").on('click', function(e) {
+                e.preventDefault();
+                $('html, body').animate({ scrollTop: $(this.hash).offset().top -40 }, 1200);
 
-            var text_2 = $("#2");
-            var label_2 = $("#b");
+                // edit: Opera and IE requires the "html" elm. animated
+            });
 
-            var text_3 = $("#3");
-            var label_3 = $("#c");
+            var a = 0;
+            var b = 0;
+            var c = 0;
+            var d = 0;
+            var e = 0;
+            var f = 0;
 
-            var text_4 = $("#4");
-            var label_4 = $("#d");
+            $("#chapter1 li:first").find("input").keyup(function(){
 
-//            text_1.keyup(function(){
-//                if (text_1.val() == text_1.data("ans")){
-//                    text_1.prop('disabled', true);
-//                    label_1.append('<span class="glyphicon glyphicon-check"> ถูกต้อง</span><br /><br />');
-//                }
-//                else if (text_1.val() == ""){
-//                    text_1.removeClass("false");
-//                }
-//                else {
-//                    text_1.addClass("false");
-//                }
-//            });
+                var chapter1_li = $("#chapter1 li:first");
+                var chapter1_panel = $("#chapter1 .panel");
 
-            a.child("form-control").keyup(function(){
-                if (a.child("form-control").val() == a.child("form-control").data("ans")){
-                    a.child("form-control").prop('disabled', true);
-                    a.append('<span class="glyphicon glyphicon-check"> ถูกต้อง</span><br /><br />');
+                if (chapter1_li.find("input").val() == chapter1_li.find("input").data("ans")){
+                    chapter1_li.find("input").prop('disabled', true);
+                    chapter1_li.append('<span class="glyphicon glyphicon-check"> ถูกต้อง</span><br /><br />');
+                    a += 1;
                 }
-                else if (text_1.val() == ""){
-                    a.child("form-control").removeClass("false");
+                else if (chapter1_li.find("input").val() == ""){
+                    chapter1_li.find("input").removeClass("false");
                 }
                 else {
-                    a.child("form-control").addClass("false");
+                    chapter1_li.find("input").addClass("false");
+                }
+
+                if (a == 3){
+                    chapter1_panel.removeClass("panel-default");
+                    chapter1_panel.addClass("panel-success");
+                    $("#chapter1 .panel-heading").find("h4").append('<span class="badge pull-right"><span class="glyphicon glyphicon-check"> เรียบร้อย</span></span>');
+                }
+            });
+
+            $("#chapter1 li:first").next().find("input").keyup(function(){
+
+                var chapter1_li = $("#chapter1 li:first");
+                var chapter1_panel = $("#chapter1 .panel");
+
+                if (chapter1_li.next().find("input").val() == chapter1_li.next().find("input").data("ans")){
+                    chapter1_li.next().find("input").prop('disabled', true);
+                    chapter1_li.next().append('<span class="glyphicon glyphicon-check"> ถูกต้อง</span><br /><br />');
+                    a += 1;
+                }
+                else if (chapter1_li.next().find("input").val() == ""){
+                    chapter1_li.next().find("input").removeClass("false");
+                }
+                else {
+                    chapter1_li.next().find("input").addClass("false");
+                }
+
+                if (a == 3){
+                    chapter1_panel.removeClass("panel-default");
+                    chapter1_panel.addClass("panel-success");
+                    $("#chapter1 .panel-heading").find("h4").append('<span class="badge pull-right"><span class="glyphicon glyphicon-check"> เรียบร้อย</span></span>');
+                }
+            });
+
+            $("#chapter1 li:last").find("input").keyup(function(){
+
+                var chapter1_li = $("#chapter1 li:last");
+                var chapter1_panel = $("#chapter1 .panel");
+
+                if (chapter1_li.find("input").val() == chapter1_li.find("input").data("ans")){
+                    chapter1_li.find("input").prop('disabled', true);
+                    chapter1_li.append('<span class="glyphicon glyphicon-check"> ถูกต้อง</span><br /><br />');
+                    a += 1;
+                }
+                else if (chapter1_li.find("input").val() == ""){
+                    chapter1_li.find("input").removeClass("false");
+                }
+                else {
+                    chapter1_li.find("input").addClass("false");
+                }
+
+                if (a == 3){
+                    chapter1_panel.removeClass("panel-default");
+                    chapter1_panel.addClass("panel-success");
+                    $("#chapter1 .panel-heading").find("h4").append('<span class="badge pull-right"><span class="glyphicon glyphicon-check"> เรียบร้อย</span></span>');
+                }
+            });
+
+
+            $("#chapter2 li:first").find("input").keyup(function(){
+
+                var chapter2_li = $("#chapter2 li:first");
+                var chapter2_panel = $("#chapter2 .panel");
+
+                if (chapter2_li.find("input").val() == chapter2_li.find("input").data("ans")){
+                    chapter2_li.find("input").prop('disabled', true);
+                    chapter2_li.append('<span class="glyphicon glyphicon-check"> ถูกต้อง</span><br /><br />');
+                    b += 1;
+                }
+                else if (chapter2_li.find("input").val() == ""){
+                    chapter2_li.find("input").removeClass("false");
+                }
+                else {
+                    chapter2_li.find("input").addClass("false");
+                }
+
+                if (b == 3){
+                    chapter2_panel.removeClass("panel-default");
+                    chapter2_panel.addClass("panel-success");
+                    $("#chapter2 .panel-heading").find("h4").append('<span class="badge pull-right"><span class="glyphicon glyphicon-check"> เรียบร้อย</span></span>');
+                }
+            });
+
+            $("#chapter2 li:first").next().find("input").keyup(function(){
+
+                var chapter2_li = $("#chapter2 li:first");
+                var chapter2_panel = $("#chapter2 .panel");
+
+                if (chapter2_li.next().find("input").val() == chapter2_li.next().find("input").data("ans")){
+                    chapter2_li.next().find("input").prop('disabled', true);
+                    chapter2_li.next().append('<span class="glyphicon glyphicon-check"> ถูกต้อง</span><br /><br />');
+                    b += 1;
+                }
+                else if (chapter2_li.next().find("input").val() == ""){
+                    chapter2_li.next().find("input").removeClass("false");
+                }
+                else {
+                    chapter2_li.next().find("input").addClass("false");
+                }
+
+                if (b == 3){
+                    chapter2_panel.removeClass("panel-default");
+                    chapter2_panel.addClass("panel-success");
+                    $("#chapter2 .panel-heading").find("h4").append('<span class="badge pull-right"><span class="glyphicon glyphicon-check"> เรียบร้อย</span></span>');
+                }
+            });
+
+            $("#chapter2 li:last").find("input").keyup(function(){
+
+                var chapter2_li = $("#chapter2 li:last");
+                var chapter2_panel = $("#chapter2 .panel");
+
+                if (chapter2_li.find("input").val() == chapter2_li.find("input").data("ans")){
+                    chapter2_li.find("input").prop('disabled', true);
+                    chapter2_li.append('<span class="glyphicon glyphicon-check"> ถูกต้อง</span><br /><br />');
+                    b += 1;
+                }
+                else if (chapter2_li.find("input").val() == ""){
+                    chapter2_li.find("input").removeClass("false");
+                }
+                else {
+                    chapter2_li.find("input").addClass("false");
+                }
+
+                if (b == 3){
+                    chapter2_panel.removeClass("panel-default");
+                    chapter2_panel.addClass("panel-success");
+                    $("#chapter2 .panel-heading").find("h4").append('<span class="badge pull-right"><span class="glyphicon glyphicon-check"> เรียบร้อย</span></span>');
+                }
+            });
+
+
+            $("#chapter3 li:first").find("input").keyup(function(){
+
+                var chapter3_li = $("#chapter3 li:first");
+                var chapter3_panel = $("#chapter3 .panel");
+
+                if (chapter3_li.find("input").val() == chapter3_li.find("input").data("ans")){
+                    chapter3_li.find("input").prop('disabled', true);
+                    chapter3_li.append('<span class="glyphicon glyphicon-check"> ถูกต้อง</span><br /><br />');
+                    c += 1;
+                }
+                else if (chapter3_li.find("input").val() == ""){
+                    chapter3_li.find("input").removeClass("false");
+                }
+                else {
+                    chapter3_li.find("input").addClass("false");
+                }
+
+                if (c == 3){
+                    chapter3_panel.removeClass("panel-default");
+                    chapter3_panel.addClass("panel-success");
+                    $("#chapter3 .panel-heading").find("h4").append('<span class="badge pull-right"><span class="glyphicon glyphicon-check"> เรียบร้อย</span></span>');
+                }
+            });
+
+            $("#chapter3 li:first").next().find("input").keyup(function(){
+
+                var chapter3_li = $("#chapter3 li:first");
+                var chapter3_panel = $("#chapter3 .panel");
+
+                if (chapter3_li.next().find("input").val() == chapter3_li.next().find("input").data("ans")){
+                    chapter3_li.next().find("input").prop('disabled', true);
+                    chapter3_li.next().append('<span class="glyphicon glyphicon-check"> ถูกต้อง</span><br /><br />');
+                    c += 1;
+                }
+                else if (chapter3_li.next().find("input").val() == ""){
+                    chapter3_li.next().find("input").removeClass("false");
+                }
+                else {
+                    chapter3_li.next().find("input").addClass("false");
+                }
+
+                if (c == 3){
+                    chapter3_panel.removeClass("panel-default");
+                    chapter3_panel.addClass("panel-success");
+                    $("#chapter3 .panel-heading").find("h4").append('<span class="badge pull-right"><span class="glyphicon glyphicon-check"> เรียบร้อย</span></span>');
+
+                }
+            });
+
+            $("#chapter3 li:last").find("input").keyup(function(){
+
+                var chapter3_li = $("#chapter3 li:last");
+                var chapter3_panel = $("#chapter3 .panel");
+
+                if (chapter3_li.find("input").val() == chapter3_li.find("input").data("ans")){
+                    chapter3_li.find("input").prop('disabled', true);
+                    chapter3_li.append('<span class="glyphicon glyphicon-check"> ถูกต้อง</span><br /><br />');
+                    c += 1;
+                }
+                else if (chapter3_li.find("input").val() == ""){
+                    chapter3_li.find("input").removeClass("false");
+                }
+                else {
+                    chapter3_li.find("input").addClass("false");
+                }
+
+                if (c == 3){
+                    chapter3_panel.removeClass("panel-default");
+                    chapter3_panel.addClass("panel-success");
+                    $("#chapter3 .panel-heading").find("h4").append('<span class="badge pull-right"><span class="glyphicon glyphicon-check"> เรียบร้อย</span></span>');
+
+                }
+            });
+
+            $("#chapter4 li:first").find("input").keyup(function(){
+
+                var chapter4_li = $("#chapter4 li:first");
+                var chapter4_panel = $("#chapter4 .panel");
+
+                if (chapter4_li.find("input").val() == chapter4_li.find("input").data("ans")){
+                    chapter4_li.find("input").prop('disabled', true);
+                    chapter4_li.append('<span class="glyphicon glyphicon-check"> ถูกต้อง</span><br /><br />');
+                    d += 1;
+                }
+                else if (chapter4_li.find("input").val() == ""){
+                    chapter4_li.find("input").removeClass("false");
+                }
+                else {
+                    chapter4_li.find("input").addClass("false");
+                }
+
+                if (d == 3){
+                    chapter4_panel.removeClass("panel-default");
+                    chapter4_panel.addClass("panel-success");
+                    $("#chapter4 .panel-heading").find("h4").append('<span class="badge pull-right"><span class="glyphicon glyphicon-check"> เรียบร้อย</span></span>');
+
+                }
+            });
+
+            $("#chapter4 li:first").next().find("input").keyup(function(){
+
+                var chapter4_li = $("#chapter4 li:first");
+                var chapter4_panel = $("#chapter4 .panel");
+
+                if (chapter4_li.next().find("input").val() == chapter4_li.next().find("input").data("ans")){
+                    chapter4_li.next().find("input").prop('disabled', true);
+                    chapter4_li.next().append('<span class="glyphicon glyphicon-check"> ถูกต้อง</span><br /><br />');
+                    d += 1;
+                }
+                else if (chapter4_li.next().find("input").val() == ""){
+                    chapter4_li.next().find("input").removeClass("false");
+                }
+                else {
+                    chapter4_li.next().find("input").addClass("false");
+                }
+
+                if (d == 3){
+                    chapter4_panel.removeClass("panel-default");
+                    chapter4_panel.addClass("panel-success");
+                    $("#chapter4 .panel-heading").find("h4").append('<span class="badge pull-right"><span class="glyphicon glyphicon-check"> เรียบร้อย</span></span>');
+
+                }
+            });
+
+            $("#chapter4 li:last").find("input").keyup(function(){
+
+                var chapter4_li = $("#chapter4 li:last");
+                var chapter4_panel = $("#chapter4 .panel");
+
+                if (chapter4_li.find("input").val() == chapter4_li.find("input").data("ans")){
+                    chapter4_li.find("input").prop('disabled', true);
+                    chapter4_li.append('<span class="glyphicon glyphicon-check"> ถูกต้อง</span><br /><br />');
+                    d += 1;
+                }
+                else if (chapter4_li.find("input").val() == ""){
+                    chapter4_li.find("input").removeClass("false");
+                }
+                else {
+                    chapter4_li.find("input").addClass("false");
+                }
+
+                if (d == 3){
+                    chapter4_panel.removeClass("panel-default");
+                    chapter4_panel.addClass("panel-success");
+                    $("#chapter4 .panel-heading").find("h4").append('<span class="badge pull-right"><span class="glyphicon glyphicon-check"> เรียบร้อย</span></span>');
+                }
+            });
+
+            $("#chapter5 li:first").find("input").keyup(function(){
+
+                var chapter5_li = $("#chapter5 li:first");
+                var chapter5_panel = $("#chapter5 .panel");
+
+                if (chapter5_li.find("input").val() == chapter5_li.find("input").data("ans")){
+                    chapter5_li.find("input").prop('disabled', true);
+                    chapter5_li.append('<span class="glyphicon glyphicon-check"> ถูกต้อง</span><br /><br />');
+                    e += 1;
+                }
+                else if (chapter5_li.find("input").val() == ""){
+                    chapter5_li.find("input").removeClass("false");
+                }
+                else {
+                    chapter5_li.find("input").addClass("false");
+                }
+
+                if (e == 3){
+                    chapter5_panel.removeClass("panel-default");
+                    chapter5_panel.addClass("panel-success");
+                    $("#chapter5 .panel-heading").find("h4").append('<span class="badge pull-right"><span class="glyphicon glyphicon-check"> เรียบร้อย</span></span>');
+
+                }
+            });
+
+            $("#chapter5 li:first").next().find("input").keyup(function(){
+
+                var chapter5_li = $("#chapter5 li:first");
+                var chapter5_panel = $("#chapter5 .panel");
+
+                if (chapter5_li.next().find("input").val() == chapter5_li.next().find("input").data("ans")){
+                    chapter5_li.next().find("input").prop('disabled', true);
+                    chapter5_li.next().append('<span class="glyphicon glyphicon-check"> ถูกต้อง</span><br /><br />');
+                    e += 1;
+                }
+                else if (chapter5_li.next().find("input").val() == ""){
+                    chapter5_li.next().find("input").removeClass("false");
+                }
+                else {
+                    chapter5_li.next().find("input").addClass("false");
+                }
+
+                if (e == 3){
+                    chapter5_panel.removeClass("panel-default");
+                    chapter5_panel.addClass("panel-success");
+                    $("#chapter5 .panel-heading").find("h4").append('<span class="badge pull-right"><span class="glyphicon glyphicon-check"> เรียบร้อย</span></span>');
+
+                }
+            });
+
+            $("#chapter5 li:last").find("input").keyup(function(){
+
+                var chapter5_li = $("#chapter5 li:last");
+                var chapter5_panel = $("#chapter5 .panel");
+
+                if (chapter5_li.find("input").val() == chapter5_li.find("input").data("ans")){
+                    chapter5_li.find("input").prop('disabled', true);
+                    chapter5_li.append('<span class="glyphicon glyphicon-check"> ถูกต้อง</span><br /><br />');
+                    e += 1;
+                }
+                else if (chapter5_li.find("input").val() == ""){
+                    chapter5_li.find("input").removeClass("false");
+                }
+                else {
+                    chapter5_li.find("input").addClass("false");
+                }
+
+                if (e == 3){
+                    chapter5_panel.removeClass("panel-default");
+                    chapter5_panel.addClass("panel-success");
+                    $("#chapter5 .panel-heading").find("h4").append('<span class="badge pull-right"><span class="glyphicon glyphicon-check"> เรียบร้อย</span></span>');
+                }
+            });
+
+            $("#chapter6 li:first").find("input").keyup(function(){
+
+                var chapter6_li = $("#chapter6 li:first");
+                var chapter6_panel = $("#chapter6 .panel");
+
+                if (chapter6_li.find("input").val() == chapter6_li.find("input").data("ans")){
+                    chapter6_li.find("input").prop('disabled', true);
+                    chapter6_li.append('<span class="glyphicon glyphicon-check"> ถูกต้อง</span><br /><br />');
+                    f += 1;
+                }
+                else if (chapter6_li.find("input").val() == ""){
+                    chapter6_li.find("input").removeClass("false");
+                }
+                else {
+                    chapter6_li.find("input").addClass("false");
+                }
+
+                if (f == 3){
+                    chapter6_panel.removeClass("panel-default");
+                    chapter6_panel.addClass("panel-success");
+                    $("#chapter6 .panel-heading").find("h4").append('<span class="badge pull-right"><span class="glyphicon glyphicon-check"> เรียบร้อย</span></span>');
+
+                }
+            });
+
+            $("#chapter6 li:first").next().find("input").keyup(function(){
+
+                var chapter6_li = $("#chapter6 li:first");
+                var chapter6_panel = $("#chapter6 .panel");
+
+                if (chapter6_li.next().find("input").val() == chapter6_li.next().find("input").data("ans")){
+                    chapter6_li.next().find("input").prop('disabled', true);
+                    chapter6_li.next().append('<span class="glyphicon glyphicon-check"> ถูกต้อง</span><br /><br />');
+                    f += 1;
+                }
+                else if (chapter6_li.next().find("input").val() == ""){
+                    chapter6_li.next().find("input").removeClass("false");
+                }
+                else {
+                    chapter6_li.next().find("input").addClass("false");
+                }
+
+                if (f == 3){
+                    chapter6_panel.removeClass("panel-default");
+                    chapter6_panel.addClass("panel-success");
+                    $("#chapter6 .panel-heading").find("h4").append('<span class="badge pull-right"><span class="glyphicon glyphicon-check"> เรียบร้อย</span></span>');
+
+                }
+            });
+
+            $("#chapter6 li:last").find("input").keyup(function(){
+
+                var chapter6_li = $("#chapter6 li:last");
+                var chapter6_panel = $("#chapter6 .panel");
+
+                if (chapter6_li.find("input").val() == chapter6_li.find("input").data("ans")){
+                    chapter6_li.find("input").prop('disabled', true);
+                    chapter6_li.append('<span class="glyphicon glyphicon-check"> ถูกต้อง</span><br /><br />');
+                    f += 1;
+                }
+                else if (chapter6_li.find("input").val() == ""){
+                    chapter6_li.find("input").removeClass("false");
+                }
+                else {
+                    chapter6_li.find("input").addClass("false");
+                }
+
+                if (f == 3){
+                    chapter6_panel.removeClass("panel-default");
+                    chapter6_panel.addClass("panel-success");
+                    $("#chapter6 .panel-heading").find("h4").append('<span class="badge pull-right"><span class="glyphicon glyphicon-check"> เรียบร้อย</span></span>');
                 }
             });
 
@@ -107,7 +524,7 @@
 
 </head>
 
-<body data-spy="scroll" data-target="#main-nav-bar" data-offset="120">
+<body data-spy="scroll" data-target="#main-nav-bar" data-offset="220">
 
 <!-- Display group members dialog -->
 <div class="modal fade" id="MemberDialog" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
@@ -166,37 +583,40 @@
     <div class="container">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"></button>
-            <a class="navbar-brand" href="#">การแปลงระบบเลขฐาน</a>
+            <a class="navbar-brand" href="index.html">การแปลงระบบเลขฐาน</a>
         </div>
 
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
                 <li class="active">
-                    <a href="#"><span class="glyphicon glyphicon-home"></span> หน้าแรก</a>
+                    <a href="index.html"><span class="glyphicon glyphicon-home"></span> หน้าแรก</a>
                 </li>
                 <li class="dropdown">
                     <a href="" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-list"></span> ข้ามไปที่<b class="caret"></b></a>
                     <ul class="dropdown-menu">
+                        <li>
+                            <a href="presentation.html#/intro">คำนำ</a>
+                        </li>
                         <li class="dropdown-header">แปลงจากเลขฐานสิบเป็นเลขฐานอื่น</li>
                         <li>
-                            <a href="#">แปลงจากเลขฐานสิบเป็นเลขฐานสอง</a>
+                            <a href="presentation.html#/test">แปลงจากเลขฐานสิบเป็นเลขฐานสอง</a>
                         </li>
                         <li>
-                            <a href="#">แปลงจากเลขฐานสิบเป็นเลขฐานแปด</a>
+                            <a href="presentation.html#/test2">แปลงจากเลขฐานสิบเป็นเลขฐานแปด</a>
                         </li>
                         <li>
-                            <a href="#">แปลงจากเลขฐานสิบเป็นเลขฐานสิบหก</a>
+                            <a href="presentation.html#/test">แปลงจากเลขฐานสิบเป็นเลขฐานสิบหก</a>
                         </li>
                         <li class="divider"></li>
                         <li class="dropdown-header">แปลงจากเลขฐานอื่นเป็นเลขฐานสิบ</li>
                         <li>
-                            <a href="#">แปลงจากเลขฐานสองเป็นเลขฐานสิบ</a>
+                            <a href="presentation.html#/test">แปลงจากเลขฐานสองเป็นเลขฐานสิบ</a>
                         </li>
                         <li>
-                            <a href="#">แปลงจากเลขฐานแปดเป็นเลขฐานสิบ</a>
+                            <a href="presentation.html#/test">แปลงจากเลขฐานแปดเป็นเลขฐานสิบ</a>
                         </li>
                         <li>
-                            <a href="#">แปลงจากเลขฐานสิบหกเป็นเลขฐานสิบ</a>
+                            <a href="presentation.html#/test">แปลงจากเลขฐานสิบหกเป็นเลขฐานสิบ</a>
                         </li>
                     </ul>
                 </li>
@@ -470,4 +890,5 @@
 <!-- load the main Bootstrap javascript file -->
 <script src="js/bootstrap.min.js"></script>
 
+</body>
 </html>
