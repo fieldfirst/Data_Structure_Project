@@ -65,6 +65,10 @@
                 sessionStorage.setItem("3", "0");
                 sessionStorage.setItem("4", "0");
                 sessionStorage.setItem("5", "0");
+                sessionStorage.setItem("6", "0");
+                sessionStorage.setItem("7", "0");
+                sessionStorage.setItem("8", "0");
+                sessionStorage.setItem("9", "0");
             }
 
             /*
@@ -74,29 +78,43 @@
              กำลังศึกษา = 2
              */
             if (sessionStorage.getItem("0") == "1"){
-                $('#a').append('<span class="badge pull-right"><span class="glyphicon glyphicon-check"></span> ศึกษาครบแล้ว</span>');
+                $('#a').append('<span class="badge pull-right"><span class="glyphicon glyphicon-check"></span> ดูไปแล้ว</span>');
             }
 
-
             if (sessionStorage.getItem("1") == "1"){
-                $('#b').append('<span class="badge pull-right"><span class="glyphicon glyphicon-check"></span> ศึกษาครบแล้ว</span>');
+                $('#b').append('<span class="badge pull-right"><span class="glyphicon glyphicon-check"></span> ดูไปแล้ว</span>');
             }
 
             if (sessionStorage.getItem("2") == "1"){
-                $('#c').append('<span class="badge pull-right"><span class="glyphicon glyphicon-check"></span> ศึกษาครบแล้ว</span>');
+                $('#c').append('<span class="badge pull-right"><span class="glyphicon glyphicon-check"></span> ดูไปแล้ว</span>');
             }
 
-
             if (sessionStorage.getItem("3") == "1"){
-                $('#d').append('<span class="badge pull-right"><span class="glyphicon glyphicon-check"></span> ศึกษาครบแล้ว</span>');
+                $('#d').append('<span class="badge pull-right"><span class="glyphicon glyphicon-check"></span> ดูไปแล้ว</span>');
             }
 
             if (sessionStorage.getItem("4") == "1"){
-                $('#e').append('<span class="badge pull-right"><span class="glyphicon glyphicon-check"></span> ศึกษาครบแล้ว</span>');
+                $('#e').append('<span class="badge pull-right"><span class="glyphicon glyphicon-check"></span> ดูไปแล้ว</span>');
             }
 
             if (sessionStorage.getItem("5") == "1"){
-                $('#f').append('<span class="badge pull-right"><span class="glyphicon glyphicon-check"></span> ศึกษาครบแล้ว</span>');
+                $('#f').append('<span class="badge pull-right"><span class="glyphicon glyphicon-check"></span> ดูไปแล้ว</span>');
+            }
+
+            if (sessionStorage.getItem("6") == "1"){
+                $('#g').append('<span class="badge pull-right"><span class="glyphicon glyphicon-check"></span> ดูไปแล้ว</span>');
+            }
+
+            if (sessionStorage.getItem("7") == "1"){
+                $('#h').append('<span class="badge pull-right"><span class="glyphicon glyphicon-check"></span> ดูไปแล้ว</span>');
+            }
+
+            if (sessionStorage.getItem("8") == "1"){
+                $('#i').append('<span class="badge pull-right"><span class="glyphicon glyphicon-check"></span> ดูไปแล้ว</span>');
+            }
+
+            if (sessionStorage.getItem("9") == "1"){
+                $('#j').append('<span class="badge pull-right"><span class="glyphicon glyphicon-check"></span> ดูไปแล้ว</span>');
             }
 
             $("body").css("display", "none");
@@ -208,28 +226,40 @@
                     <a href="" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-list"></span> ข้ามไปที่<b class="caret"></b></a>
                     <ul class="dropdown-menu">
                         <li>
-                            <a href="presentation.html#/intro">คำนำ</a>
+                            <a href="presentation.html#/chapter1">คำนำ</a>
                         </li>
+                        <li>
+                            <a href="presentation.html#/chapter2">ประโยชน์ของเลขฐาน</a>
+                        </li>
+
                         <li class="dropdown-header">แปลงจากเลขฐานสิบเป็นเลขฐานอื่น</li>
                         <li>
-                            <a href="presentation.html#/test">แปลงจากเลขฐานสิบเป็นเลขฐานสอง</a>
+                            <a href="presentation.html#/chapter3">แปลงจากเลขฐานสิบเป็นเลขฐานสอง</a>
                         </li>
                         <li>
-                            <a href="presentation.html#/test">แปลงจากเลขฐานสิบเป็นเลขฐานแปด</a>
+                            <a href="presentation.html#/chapter4">แปลงจากเลขฐานสิบเป็นเลขฐานแปด</a>
                         </li>
                         <li>
-                            <a href="presentation.html#/test">แปลงจากเลขฐานสิบเป็นเลขฐานสิบหก</a>
+                            <a href="presentation.html#/chapter5">แปลงจากเลขฐานสิบเป็นเลขฐานสิบหก</a>
+                        </li>
+                        <li class="divider"></li>
+                        <li class="dropdown-header">แปลงจากเลขฐานสองเป็นเลขฐานอื่น</li>
+                        <li>
+                            <a href="presentation.html#/chapter6">แปลงจากเลขฐานสอง เป็นเลขฐานแปด</a>
+                        </li>
+                        <li>
+                            <a href="presentation.html#/chapter7">แปลงจากเลขฐานสอง เป็นเลขฐานสิบหก</a>
                         </li>
                         <li class="divider"></li>
                         <li class="dropdown-header">แปลงจากเลขฐานอื่นเป็นเลขฐานสิบ</li>
                         <li>
-                            <a href="presentation.html#/test">แปลงจากเลขฐานสองเป็นเลขฐานสิบ</a>
+                            <a href="presentation.html#/chapter8">แปลงจากเลขฐานสองเป็นเลขฐานสิบ</a>
                         </li>
                         <li>
-                            <a href="presentation.html#/test">แปลงจากเลขฐานแปดเป็นเลขฐานสิบ</a>
+                            <a href="presentation.html#/chapter9">แปลงจากเลขฐานแปดเป็นเลขฐานสิบ</a>
                         </li>
                         <li>
-                            <a href="presentation.html#/test">แปลงจากเลขฐานสิบหกเป็นเลขฐานสิบ</a>
+                            <a href="presentation.html#/chapter10">แปลงจากเลขฐานสิบหกเป็นเลขฐานสิบ</a>
                         </li>
                     </ul>
                 </li>
@@ -286,29 +316,45 @@
 
     <div class="row">
         <div class="list-group col-md-9">
-            <a href="#" class="list-group-item">
-                <h4 class="list-group-item-heading" id="a"><span class="glyphicon glyphicon-hand-right"></span> การแปลงระบบเลขฐานจากฐานสิบไปยังฐานสอง</h4>
+            <a href="presentation.html#/chapter1" class="list-group-item">
+                <h4 class="list-group-item-heading" id="a"><span class="glyphicon glyphicon-hand-right"></span> คำนำ ระบบเลขฐาน</h4>
+                <p class="list-group-item-text">ระบบเลขฐาน คือ อะไร ?</p>
+            </a>
+            <a href="presentation.html#/chapter2" class="list-group-item">
+                <h4 class="list-group-item-heading" id="b"><span class="glyphicon glyphicon-hand-right"></span> ประโยชน์ของระบบเลขฐาน</h4>
+                <p class="list-group-item-text">ระบบเลขฐาน นำไปใช้ทำอะไร ?</p>
+            </a>
+            <a href="presentation.html#/chapter3" class="list-group-item">
+                <h4 class="list-group-item-heading" id="c"><span class="glyphicon glyphicon-hand-right"></span> การแปลงระบบเลขฐานจากฐานสิบไปยังฐานสอง</h4>
                 <p class="list-group-item-text">การแปลงระบบเลขฐาน โดยใช้การหารยาว</p>
             </a>
-            <a href="#" class="list-group-item">
-                <h4 class="list-group-item-heading" id="b"><span class="glyphicon glyphicon-hand-right"></span> การแปลงระบบเลขฐานจากฐานสิบไปยังฐานแปด</h4>
+            <a href="presentation.html#/chapter4" class="list-group-item">
+                <h4 class="list-group-item-heading" id="d"><span class="glyphicon glyphicon-hand-right"></span> การแปลงระบบเลขฐานจากฐานสิบไปยังฐานแปด</h4>
                 <p class="list-group-item-text">การแปลงระบบเลขฐาน โดยใช้การหารยาว</p>
             </a>
-            <a href="#" class="list-group-item">
-                <h4 class="list-group-item-heading" id="c"><span class="glyphicon glyphicon-hand-right"></span> การแปลงระบบเลขฐานจากฐานสิบไปยังฐานสิบหก</h4>
+            <a href="presentation.html#/chapter5" class="list-group-item">
+                <h4 class="list-group-item-heading" id="e"><span class="glyphicon glyphicon-hand-right"></span> การแปลงระบบเลขฐานจากฐานสิบไปยังฐานสิบหก</h4>
                 <p class="list-group-item-text">การแปลงระบบเลขฐาน โดยใช้การหารยาว</p>
             </a>
-            <a href="#" class="list-group-item">
-                <h4 class="list-group-item-heading" id="d"><span class="glyphicon glyphicon-hand-right"></span> การแปลงระบบเลขฐานจากฐานสองไปยังฐานสิบ</h4>
+            <a href="presentation.html#/chapter6" class="list-group-item">
+                <h4 class="list-group-item-heading" id="f"><span class="glyphicon glyphicon-hand-right"></span> การแปลงระบบเลขฐานจากฐานสองไปยังเลขฐานแปด</h4>
+                <p class="list-group-item-text">การแปลงระบบเลขฐาน โดยใช้การจุดกลุ่มของเลขฐานสอง</p>
+            </a>
+            <a href="presentation.html#/chapter7" class="list-group-item">
+                <h4 class="list-group-item-heading" id="g"><span class="glyphicon glyphicon-hand-right"></span> การแปลงระบบเลขฐานจากฐานสองไปยังเลขฐานสิบหก</h4>
+                <p class="list-group-item-text">การแปลงระบบเลขฐาน โดยใช้การจัดกลุ่มของเลขฐานสอง</p>
+            </a>
+            <a href="presentation.html#/chapter8" class="list-group-item">
+                <h4 class="list-group-item-heading" id="h"><span class="glyphicon glyphicon-hand-right"></span> การแปลงระบบเลขฐานจากฐานสองไปยังฐานสิบ</h4>
                 <p class="list-group-item-text">การแปลงระบบเลขฐาน โดยใช้การคูณเลขหลัก</p>
             </a>
-            <a href="#" class="list-group-item">
-                <h4 class="list-group-item-heading" id="e"><span class="glyphicon glyphicon-hand-right"></span> การแปลงระบบเลขฐานจากฐานแปดไปยังฐานสิบ</h4>
-                <p class="list-group-item-text">การแปลงระบบเลขฐาน โดยใช้การจัดกลุ่มของเลขหลัก</p>
+            <a href="presentation.html#/chapter9" class="list-group-item">
+                <h4 class="list-group-item-heading" id="i"><span class="glyphicon glyphicon-hand-right"></span> การแปลงระบบเลขฐานจากฐานแปดไปยังฐานสิบ</h4>
+                <p class="list-group-item-text">การแปลงระบบเลขฐาน โดยใช้การคูณเลขหลัก</p>
             </a>
-            <a href="#" class="list-group-item">
-                <h4 class="list-group-item-heading" id="f"><span class="glyphicon glyphicon-hand-right"></span> การแปลงระบบเลขฐานจากฐานสิบหกไปยังฐานสิบ</h4>
-                <p class="list-group-item-text">การแปลงระบบเลขฐาน โดยใช้การจัดกลุ่มของเลขหลัก</p>
+            <a href="presentation.html#/chapter10" class="list-group-item">
+                <h4 class="list-group-item-heading" id="j"><span class="glyphicon glyphicon-hand-right"></span> การแปลงระบบเลขฐานจากฐานสิบหกไปยังฐานสิบ</h4>
+                <p class="list-group-item-text">การแปลงระบบเลขฐาน โดยใช้การคูณเลขหลัก</p>
             </a>
         </div>
 
@@ -342,7 +388,7 @@
 </div>
 
 <footer>
-    <p>จัดทำโดยกลุ่มที่ 14 [8/09/2013]</p>
+    <p>จัดทำโดยกลุ่มที่ 14 [8/09/2013], Work best on Google Chrome 31 [Canary Build] :) </p>
 </footer>
 
 <!-- load the Jquery javascript library -->

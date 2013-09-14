@@ -80,6 +80,11 @@
 
     }
 
+    function resetMenu(){
+        $("#menu li").each(function(){
+            $(this).removeClass("active");
+        });
+    }
 
     window.onload = function(){
 
@@ -94,6 +99,7 @@
         var nav_control = $("#navigation_control");
         var btn_group = $("btn-group");
         var btn_toolbar = $("btn-toolbar");
+        var auto_enabled = false;
 
         if (Reveal.isFirstSlide()){
             btn_back.addClass("inactive");
@@ -171,10 +177,9 @@
         });
 
         btn_fullscreen.click(function(){
-            var fullscreenEnabled = (document.fullscreenEnabled || document.mozFullScreenEnabled || document.webkitFullscreenEnabled);
             var element = document.getElementById("body");
 
-            if (! fullscreenEnabled){
+            if (! (document.fullScreen || document.mozfullScreen || document.webkitIsFullScreen)){
                 enterFullscreen(element);
                 btn_fullscreen.addClass("inactive");
             }
@@ -184,6 +189,134 @@
             }
 
         });
+
+        btn_automatic.click(function(){
+            if (! auto_enabled){
+                Reveal.configure({autoSlide: 3000});
+                auto_enabled = 1;
+                btn_automatic.addClass("inactive");
+            }
+
+            else {
+                Reveal.configure({autoSlide: 0});
+                auto_enabled = 0;
+                btn_automatic.removeClass("inactive");
+            }
+        });
+
+        var a = $("#a");
+        var b = $("#b");
+        var c = $("#c");
+        var d = $("#d");
+        var e = $("#e");
+        var f = $("#f");
+        var g = $("#g");
+        var h = $("#h");
+        var i = $("#i");
+        var j = $("#j");
+
+        Reveal.addEventListener( 'state1', function() {
+            resetMenu();
+            a.addClass("active");
+            sessionStorage.setItem("0", "1");
+        }, false );
+
+        Reveal.addEventListener( 'state2', function() {
+            resetMenu();
+            b.addClass("active");
+            sessionStorage.setItem("1", "1");
+        }, false );
+
+        Reveal.addEventListener( 'state3', function() {
+            resetMenu();
+            c.addClass("active");
+            sessionStorage.setItem("2", "1");
+        }, false );
+
+        Reveal.addEventListener( 'state4', function() {
+            resetMenu();
+            d.addClass("active");
+            sessionStorage.setItem("3", "1");
+        }, false );
+
+        Reveal.addEventListener( 'state5', function() {
+            resetMenu();
+            e.addClass("active");
+            sessionStorage.setItem("4", "1");
+        }, false );
+
+        Reveal.addEventListener( 'state6', function() {
+            resetMenu();
+            f.addClass("active");
+            sessionStorage.setItem("5", "1");
+        }, false );
+
+        Reveal.addEventListener( 'state7', function() {
+            resetMenu();
+            g.addClass("active");
+            sessionStorage.setItem("6", "1");
+        }, false );
+
+        Reveal.addEventListener( 'state8', function() {
+            resetMenu();
+            h.addClass("active");
+            sessionStorage.setItem("7", "1");
+        }, false );
+
+        Reveal.addEventListener( 'state9', function() {
+            resetMenu();
+            i.addClass("active");
+            sessionStorage.setItem("8", "1");
+        }, false );
+
+        Reveal.addEventListener( 'state10', function() {
+            resetMenu();
+            j.addClass("active");
+            sessionStorage.setItem("9", "1");
+        }, false );
+
+        switch (Reveal.getCurrentSlide().getAttribute("id")) {
+            case "chapter1" :
+                a.addClass("active");
+                sessionStorage.setItem("0", "1");
+                break;
+            case "chapter2" :
+                b.addClass("active");
+                sessionStorage.setItem("1", "1");
+                break;
+            case "chapter3" :
+                c.addClass("active");
+                sessionStorage.setItem("2", "1");
+                break;
+            case "chapter4" :
+                d.addClass("active");
+                sessionStorage.setItem("3", "1");
+                break;
+            case "chapter5" :
+                e.addClass("active");
+                sessionStorage.setItem("4", "1");
+                break;
+            case "chapter6" :
+                f.addClass("active");
+                sessionStorage.setItem("5", "1");
+                break;
+            case "chapter7" :
+                g.addClass("active");
+                sessionStorage.setItem("6", "1");
+                break;
+            case "chapter8" :
+                h.addClass("active");
+                sessionStorage.setItem("7", "1");
+                break;
+            case "chapter9" :
+                i.addClass("active");
+                sessionStorage.setItem("8", "1");
+                break;
+            case "chapter10" :
+                j.addClass("active");
+                sessionStorage.setItem("9", "1");
+                break;
+        }
 
     }
 
@@ -284,35 +417,47 @@
 
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                <li class="active">
+                <li>
                     <a href="index.html"><span class="glyphicon glyphicon-home"></span> หน้าแรก</a>
                 </li>
-                <li class="dropdown">
+                <li class="dropdown active" id="menu">
                     <a href="" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-list"></span> ข้ามไปที่<b class="caret"></b></a>
                     <ul class="dropdown-menu">
-                        <li>
+                        <li id="a">
                             <a href="#/chapter1">คำนำ</a>
                         </li>
+                        <li id="b">
+                            <a href="#/chapter2">ประโยชน์ของเลขฐาน</a>
+                        </li>
+
                         <li class="dropdown-header">แปลงจากเลขฐานสิบเป็นเลขฐานอื่น</li>
-                        <li>
-                            <a href="#/chapter2">แปลงจากเลขฐานสิบเป็นเลขฐานสอง</a>
+                        <li id="c">
+                            <a href="#/chapter3">แปลงจากเลขฐานสิบเป็นเลขฐานสอง</a>
                         </li>
-                        <li>
-                            <a href="#/chapter3">แปลงจากเลขฐานสิบเป็นเลขฐานแปด</a>
+                        <li id="d">
+                            <a href="#/chapter4">แปลงจากเลขฐานสิบเป็นเลขฐานแปด</a>
                         </li>
-                        <li>
-                            <a href="#/chapter4">แปลงจากเลขฐานสิบเป็นเลขฐานสิบหก</a>
+                        <li id="e">
+                            <a href="#/chapter5">แปลงจากเลขฐานสิบเป็นเลขฐานสิบหก</a>
+                        </li>
+                        <li class="divider"></li>
+                        <li class="dropdown-header">แปลงจากเลขฐานสองเป็นเลขฐานอื่น</li>
+                        <li id="f">
+                            <a href="#/chapter6">แปลงจากเลขฐานสอง เป็นเลขฐานแปด</a>
+                        </li>
+                        <li id="g">
+                            <a href="#/chapter7">แปลงจากเลขฐานสอง เป็นเลขฐานสิบหก</a>
                         </li>
                         <li class="divider"></li>
                         <li class="dropdown-header">แปลงจากเลขฐานอื่นเป็นเลขฐานสิบ</li>
-                        <li>
-                            <a href="#/chapter5">แปลงจากเลขฐานสองเป็นเลขฐานสิบ</a>
+                        <li id="h">
+                            <a href="#/chapter8">แปลงจากเลขฐานสองเป็นเลขฐานสิบ</a>
                         </li>
-                        <li>
-                            <a href="#/chapter6">แปลงจากเลขฐานแปดเป็นเลขฐานสิบ</a>
+                        <li id="i">
+                            <a href="#/chapter9">แปลงจากเลขฐานแปดเป็นเลขฐานสิบ</a>
                         </li>
-                        <li>
-                            <a href="#/chapter7">แปลงจากเลขฐานสิบหกเป็นเลขฐานสิบ</a>
+                        <li id="j">
+                            <a href="#/chapter10">แปลงจากเลขฐานสิบหกเป็นเลขฐานสิบ</a>
                         </li>
                     </ul>
                 </li>
@@ -358,135 +503,111 @@
 
 <div class="reveal">
     <div class="slides">
-        <section data-background-image="001.jpg" id="chapter1">
+        <section data-background-image="001.jpg" id="chapter1" data-transition="linear" data-state="state1">
             <h3 class="fragment" data-fragment-index="0">
-                <br>
-            </h3>
-            <h3 class="fragment" data-fragment-index="1">
-                <font style="font-size: 42px;">ระบบเลขฐาน</font>
+                <font style="font-size: 42px; color: rgb(0, 0, 0);">ระบบเลขฐาน</font>
             </h3>
             <p style="text-align: justify;" class="fragment" data-fragment-index="1">
                 <span style="background-color: rgba(255, 255, 255, 0.0470588); text-align: left; color: rgb(0, 0, 0);">
-                    <font style="font-size: 32px;">&nbsp; เป็นสัญลักษณ์ทางคณิตศาสตร์ที่แสดงถึงจำนวนต่างๆ ระบบเลขแต่ละระบบมีจำนวนตัวเลขที่ใช้เหมือนกับชื่อของระบบเลขนั้น และมีฐานของจำนวนเลขตามชื่อของมัน เช่น เลขฐานสอง ฐานแปด ฐานสิบ ฐานสิบหก เป็นต้น โดยในตอนหลังเราจะมาดูหลักการแปลงเลขขั้นพื้นฐานของเลขฐานสำคัญๆ </font>
+                    <font style="font-size: 32px;">&nbsp; เป็นสัญลักษณ์ทางคณิตศาสตร์ที่แสดงถึงจำนวนต่างๆ ระบบเลขแต่ละระบบมีจำนวนตัวเลขที่ใช้เหมือนกับชื่อของระบบเลขนั้น และมีฐานของจำนวนเลขตามชื่อของมัน เช่น เลขฐานสอง ฐานแปด ฐานสิบ และฐานสิบหก เป็นต้น โดยในตอนหลังเราจะมาดูหลักการแปลงเลขขั้นพื้นฐานของเลขฐานสำคัญๆ </font>
                     <font style="font-size: 32px;">กัน</font>
                 </span>
             </p>
             <br>
         </section>
-        <section data-background-image="001.jpg" id="chapter2">
-            <h2 class="fragment" data-fragment-index="0">
-                <br>
-            </h2>
-            <h3 class="fragment" data-fragment-index="1">
-                <font style="font-size: 42px;">ประโยชน์ของเลขฐาน</font>
+        <section data-background-image="001.jpg" id="chapter2" data-transition="linear" data-state="state2">
+            <h3 class="fragment" data-fragment-index="0">
+                <font style="font-size: 42px; color: rgb(0, 0, 0);">ประโยชน์ของเลขฐาน</font>
             </h3>
-            <div>
+            <p style="text-align: justify;" class="fragment" data-fragment-index="1">
                 <span style="text-align: left;">
-                    <br>
-                </span>
-            </div>
-            <p style="text-align: justify;" class="fragment" data-fragment-index="2">
-                <span style="text-align: left;">
-                    <font style="font-size: 32px;">1. เลขฐานสอง ใช้ในการสร้างวงจรดิจิตอล เพราะค่าที่ใช้แสดงมีแค่ค่าเปิดกับปิด (เปิด=1, ปิด=0)</font>
+                    <font style="font-size: 32px; color: rgb(0, 0, 0);">1.เลขฐานสอง ใช้ในการสร้างวงจรดิจิตอล เพราะค่าที่ใช้แสดงมีแค่ค่าเปิดกับปิด (เปิด=1, ปิด=0)</font>
                 </span>
             </p>
             <p style="text-align: justify;" class="fragment" data-fragment-index="2">
-                <span style="font-size: 32px; text-align: left;">2. &nbsp; เลขฐานห้า ใช้ในการนับคะแนน พวกคะแนนเลือกตั้งต่างๆ</span>
-            </p>
-            <p style="text-align: justify;" class="fragment" data-fragment-index="2">
-                <span style="text-align: left;">
-                    <font style="font-size: 32px;">(นับชุดละห้า)</font>
+                <span style="text-align: left">
+                    <font style="font-size: 32px; color: rgb(0, 0, 0);">2.เลขฐานห้า ใช้ในการนับจำนวนที่มีลักษณะเป็นกลุ่ม เช่น การนับคะแนน หรือจำนวนที่มีลักษณะทบห้า (นับชุดละห้า)</font>
                 </span>
             </p>
             <p style="text-align: justify; " class="fragment" data-fragment-index="4">
                 <span style="text-align: left;">
-                    <font style="font-size: 32px;">3. เลขฐานสิบ ใช้ในการแสดงจำนวน และคิดคำนวณทั่วๆ ไปที่เราใช้กันในชีวิตประจำวัน เป็นเลขฐานที่เราคุ้นเคยมากที่สุด</font>
+                    <font style="font-size: 32px; color: rgb(0, 0, 0);">3.เลขฐานสิบ ใช้ในการแสดงจำนวน และคิดคำนวณทั่วๆ ไปที่เราใช้กันในชีวิตประจำวัน เป็นเลขฐานที่เราคุ้นเคยมากที่สุด</font>
                 </span>
             </p>
             <div style="text-align: justify; " class="fragment" data-fragment-index="5">
                 <span style="text-align: left;">
-                    <font style="font-size: 32px;">4. เลขฐานแปด และฐานสิบหก ใช้ในการจัดรวมหมวดหมู่ของฐานสอง เข้ากันเป็นกลุ่มๆ</font>
+                    <font style="font-size: 32px; color: rgb(0, 0, 0);">4.เลขฐานแปด และฐานสิบหก ใช้ในการจัดรวมหมวดหมู่ของฐานสอง เข้ากันเป็นกลุ่มๆ มีประโยชน์ในสาขาวิทยาการคอมพิวเตอร์</font>
                 </span>
             </div>
             <br>
         </section>
-        <section data-background-image="001.jpg" id="chapter3">
-            <h3>
-                <br>
-            </h3>
+        <section data-background-image="001.jpg" id="chapter3" data-transition="linear" data-state="state3">
             <h3 class="fragment" data-fragment-index="0">
-                <font style="font-size: 42px;">ตัวอย่างการแปลงเลขฐานสิบ เป็นฐานสอง</font>
+                <font style="font-size: 42px; color: rgb(0, 0, 0);">ตัวอย่างการแปลงเลขฐานสิบ เป็นฐานสอง</font>
             </h3>
             <div>
                 <br>
             </div>
             <div class="fragment" data-fragment-index="1">
-                <font style="font-size: 32px;">2 )<u>&nbsp; 19 &nbsp; </u>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</font>
+                <font style="font-size: 32px; color: rgb(0, 0, 0);">2 )<u>&nbsp; 19 &nbsp;</u>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</font>
             </div>
             <div class="fragment" data-fragment-index="2">
-                <font style="font-size: 32px;">2 )<u>&nbsp; &nbsp;9 &nbsp; &nbsp;</u> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;เศษ 1</font>
+                <font style="font-size: 32px; color: rgb(0, 0, 0);">2 )<u>&nbsp; &nbsp;9 &nbsp; &nbsp;</u> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;เศษ 1</font>
             </div>
             <div class="fragment" data-fragment-index="3">
-                <font style="font-size: 32px;">2 )<u>&nbsp; &nbsp;4 &nbsp; &nbsp;</u> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;เศษ 1</font>
+                <font style="font-size: 32px; color: rgb(0, 0, 0);">2 )<u>&nbsp; &nbsp;4 &nbsp; &nbsp;</u> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;เศษ 1</font>
             </div>
             <div class="fragment" data-fragment-index="4">
-                <font style="font-size: 32px;">2 )<u> &nbsp; 2 &nbsp; &nbsp;</u> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;เศษ 0</font>
+                <font style="font-size: 32px; color: rgb(0, 0, 0);">2 )<u> &nbsp; 2 &nbsp; &nbsp;</u> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;เศษ 0</font>
             </div>
             <div class="fragment" data-fragment-index="5">
-                <font style="font-size: 32px;">2 )<u>&nbsp;<span style="font-style: normal; font-variant: normal;">&nbsp; 1 &nbsp;&nbsp;</span>
+                <font style="font-size: 32px; color: rgb(0, 0, 0);">2 )<u>&nbsp;<span style="font-style: normal; font-variant: normal;">&nbsp; 1 &nbsp;&nbsp;</span>
                 </u>
                 <u>&nbsp;</u> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;เศษ 0</font>
             </div>
             <div class="fragment" data-fragment-index="6">
-                <font style="font-size: 32px;">&nbsp; &nbsp; &nbsp; 1 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</font>
-            </div>
-            <div>
-                <font style="font-size: 32px;">
-                    <br>
-                </font>
+                <font style="font-size: 32px; color: rgb(0, 0, 0);">&nbsp; 1 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</font>
             </div>
             <div style="text-align: left; " class="fragment" data-fragment-index="7">
-                <font style="font-size: 32px;">&nbsp; &nbsp; &nbsp; &nbsp; คำตอบที่ได้คือ 19 คือ 11011</font>
+                <font style="font-size: 32px; color: rgb(0, 0, 0);">&nbsp; &nbsp; &nbsp; &nbsp; คำตอบที่ได้คือ 19 คือ 11011<font style="font-size: 16px;"><sub>2</sub></font></font>
             </div>
             <div style="text-align: left; " class="fragment" data-fragment-index="8">
-                <font style="font-size: 32px;">&nbsp; &nbsp; &nbsp; &nbsp; การแปลงเลขฐานสิบ เป็นฐานอื่นๆ ก็ใช้วิธีเดียวกันกับตัวอย่างนี้</font>
+                <font style="font-size: 32px; color: rgb(0, 0, 0);">&nbsp; &nbsp; &nbsp; &nbsp; การแปลงเลขฐานสิบ เป็นฐานอื่นๆ ก็ใช้วิธีเดียวกันกับตัวอย่างนี้</font>
             </div>
             <div style="text-align: left; " class="fragment" data-fragment-index="8">
-                <font style="font-size: 32px;">&nbsp; &nbsp; &nbsp; &nbsp; (แค่เปลี่ยนตัวหาร)</font>
+                <font style="font-size: 32px; color: rgb(0, 0, 0);">&nbsp; &nbsp; &nbsp; &nbsp; (แค่เปลี่ยนตัวหาร)</font>
             </div>
             <br>
         </section>
-        <section data-background-image="001.jpg" id="chapter4">
+        <section data-background-image="001.jpg" id="chapter4" data-transition="linear" data-state="state4">
             <div>
                 <h3 class="fragment" style="font-style: normal; font-variant: normal;" data-fragment-index="0">
-                    <font style="font-size: 42px;">ตัวอย่างการแปลงเลขฐานสิบ เป็นฐานแปด</font>
+                    <font style="font-size: 42px; color: rgb(0, 0, 0);">ตัวอย่างการแปลงเลขฐานสิบ เป็นฐานแปด</font>
                 </h3>
-                <div style="font-size: 35.93303680419922px; font-style: normal; font-variant: normal;">
+                <div>
                     <br>
                 </div>
                 <div class="fragment" style="font-style: normal; font-variant: normal;" data-fragment-index="1">
-                    <font style="font-size: 32px;">8 )<u>&nbsp;170 &nbsp;</u>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</font>
+                    <font style="font-size: 32px; color: rgb(0, 0, 0);">8 )<u>&nbsp;170 </u>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</font>
                 </div>
                 <div class="fragment" style="font-style: normal; font-variant: normal;" data-fragment-index="2">
-                    <font style="font-size: 32px;">8 )<u>&nbsp; 21 &nbsp;&nbsp;</u>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;เศษ 2</font>
+                    <font style="font-size: 32px; color: rgb(0, 0, 0);">8 )<u>&nbsp; 21 &nbsp;</u>&nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;เศษ 2</font>
                 </div>
                 <div class="fragment" style="font-style: normal; font-variant: normal;" data-fragment-index="3">
-                    <font style="font-size: 32px;">8 )<u> &nbsp; 2 &nbsp; &nbsp;</u> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;เศษ 5</font>
+                    <font style="font-size: 32px; color: rgb(0, 0, 0);">8 )<u> &nbsp; 2 &nbsp; &nbsp;</u> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;เศษ 5</font>
                 </div>
                 <div class="fragment" style="font-style: normal; font-variant: normal;" data-fragment-index="4">
-                    <font style="font-size: 32px;">
-                        <span>&nbsp; &nbsp; &nbsp; &nbsp;2 &nbsp; &nbsp;</span>
+                    <font style="font-size: 32px; color: rgb(0, 0, 0);">
+                        <span>&nbsp; &nbsp; &nbsp; &nbsp;2 &nbsp; &nbsp; &nbsp; &nbsp;</span>
                         <span>&nbsp;</span>
                         <span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span>
                     </font>
                 </div>
-                <div style="font-style: normal; font-variant: normal;">
-                    <font style="font-size: 32px;">
-                        <br>
-                    </font>
+                <div>
+                    <br>
                 </div>
                 <div class="fragment" style="font-style: normal; font-variant: normal; text-align: left;" data-fragment-index="5">
-                    <font style="font-size: 32px;">&nbsp; &nbsp; &nbsp; &nbsp; คำตอบที่ได้คือ 170 คือ 252</font>
+                    <font style="font-size: 32px; color: rgb(0, 0, 0);">&nbsp; &nbsp; &nbsp; &nbsp; คำตอบที่ได้คือ 170 คือ 252<font style="font-size: 16px;"><sub>8</sub></font></font>
                 </div>
             </div>
             <div>
@@ -494,24 +615,24 @@
             </div>
             <div>&nbsp;</div>
         </section>
-        <section data-background-image="001.jpg" id="chapter5">
+        <section data-background-image="001.jpg" id="chapter5" data-transition="linear" data-state="state5">
             <div class="fragment" data-fragment-index="0">
                 <h3>
-                    <font style="font-size: 42px;">ตัวอย่างการแปลงเลขฐานสิบ เป็นฐานสอง</font>
+                    <font style="font-size: 42px; color: rgb(0, 0, 0);">ตัวอย่างการแปลงเลขฐานสิบ เป็นฐานสิบหก</font>
                 </h3>
-                <div style="font-size: 35.93303680419922px; font-style: normal; font-variant: normal;">
+                <div>
                     <br>
                 </div>
                 <div class="fragment" style="font-style: normal; font-variant: normal;" data-fragment-index="1">
-                    <font style="font-size: 32px;">16 )<u>&nbsp;195 &nbsp;</u>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</font>
+                    <font style="font-size: 32px; color: rgb(0, 0, 0);">16 )<u>&nbsp;195</u>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</font>
                 </div>
                 <div class="fragment" style="font-style: normal; font-variant: normal;" data-fragment-index="2">
-                    <font style="font-size: 32px;">16 )<u> &nbsp;
+                    <font style="font-size: 32px; color: rgb(0, 0, 0);">16 )<u> &nbsp;
                         10 &nbsp;</u>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; เศษ 15</font>
                     </div>
                     <div class="fragment" style="font-style: normal; font-variant: normal;" data-fragment-index="3">
                         <span>
-                            <font style="font-size: 32px;">&nbsp; &nbsp; 10 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</font>
+                            <font style="font-size: 32px; color: rgb(0, 0, 0);">&nbsp; &nbsp; 10 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</font>
                         </span>
                     </div>
                     <div style="font-style: normal; font-variant: normal;">
@@ -520,146 +641,124 @@
                         </font>
                     </div>
                     <div class="fragment" style="font-style: normal; font-variant: normal; text-align: left;" data-fragment-index="4">
-                        <font style="font-size: 32px;">&nbsp; &nbsp; &nbsp; &nbsp; คำตอบที่ได้คือ 195 คือ AF</font>
+                        <font style="font-size: 32px; color: rgb(0, 0, 0);">&nbsp; &nbsp; &nbsp; &nbsp; คำตอบที่ได้คือ 195 คือ AF<font style="font-size: 16px;"><sub>16</sub></font></font>
                     </div>
                 </div>
                 <div class="fragment" style="font-style: normal; font-variant: normal; text-align: left;" data-fragment-index="5">
-                    <font style="font-size: 32px;">&nbsp; &nbsp; &nbsp; &nbsp; เมื่อ A = 10, B = 11, C = 12, D = 13, E = 14 และ F = 15</font>
+                    <font style="font-size: 32px; color: rgb(0, 0, 0);">&nbsp; &nbsp; &nbsp; &nbsp; เมื่อ A = 10, B = 11, C = 12, D = 13, E = 14 และ F = 15</font>
                 </div>
 
             </section>
-            <section data-background-image="001.jpg" id="chapter6">
+            <section data-background-image="001.jpg" id="chapter6" data-transition="linear" data-state="state6">
                 <div class="fragment" data-fragment-index="0">
                     <h3 style="text-align: left;">
-                        <font color="#000000" style="font-size: 42px;">การแปลงเลขฐานสอง เป็นฐานแปด โดยไม่ต้องผ่านฐานสิบ</font>
+                        <font color="#000000" style="font-size: 39px; rgb(0, 0, 0);">การแปลงเลขฐานสอง เป็นฐานแปด โดยไม่ต้องผ่านฐานสิบ</font>
                     </h3>
                 </div>
                 <div>
                     <br>
                 </div>
-                <div class="fragment" data-fragment-index="1">110100111</div>
-                <div class="fragment" data-fragment-index="2">เมื่อจัดกลุ่มทีละ 3 บิต จะได้ 110 | 100 | 111</div>
+                <div class="fragment" data-fragment-index="1"><font style="font-size: 32px; color: rgb(0, 0, 0);">110100111<font style="font-size: 16px;"><sub>2</sub></font></font></div>
+                <div class="fragment" data-fragment-index="2"><font style="font-size: 32px; color: rgb(0, 0, 0);">เมื่อจัดกลุ่มทีละ 3 บิต จะได้ 110 | 100 | 111</font></div>
                 <div>
                     <br>
                 </div>
-                <div class="fragment" data-fragment-index="3">110 มีค่าเป็น 6</div>
-                <div class="fragment" data-fragment-index="4">100 มีค่าเป็น 4</div>
-                <div class="fragment" data-fragment-index="5">111 มีค่าเป็น 7</div>
+                <div class="fragment" data-fragment-index="3"><font style="font-size: 32px; color: rgb(0, 0, 0);">110 มีค่าเป็น 6<font style="font-size: 16px;"><sub>8</sub></font></font></div>
+                <div class="fragment" data-fragment-index="4"><font style="font-size: 32px; color: rgb(0, 0, 0);">100 มีค่าเป็น 4<font style="font-size: 16px;"><sub>8</sub></font></font></div>
+                <div class="fragment" data-fragment-index="5"><font style="font-size: 32px; color: rgb(0, 0, 0);">111 มีค่าเป็น 7<font style="font-size: 16px;"><sub>8</sub></font></font></div>
                 <div>
                     <br>
                 </div>
-                <div style="text-align: left; " class="fragment" data-fragment-index="6">&nbsp; &nbsp; &nbsp; &nbsp; ดังนั้น 110100111 มีค่า 647</div>
+                <div style="text-align: left; " class="fragment" data-fragment-index="6"><font style="font-size: 32px; color: rgb(0, 0, 0);">&nbsp; &nbsp; &nbsp; &nbsp; ดังนั้น 110100111<font style="font-size: 16px;"><sub>2</sub></font> มีค่า 647<font style="font-size: 16px;"><sub>8</sub></font></font></div>
                 <div>
                     <br>
                 </div>
             </section>
-            <section data-background-image="001.jpg" id="chapter7">
-                <h3 style="box-sizing: border-box; font-weight: normal; margin: 0px 0px 20px; padding: 0px; border: 0px; font-size: 47.43px; font-style: inherit; font-variant: inherit; vertical-align: baseline; word-wrap: break-word; text-transform: none; text-shadow: none; color: rgb(56, 61, 61); text-align: left;" class="fragment" data-fragment-index="0">
-                    <font color="#000000" style="box-sizing: border-box; font-size: 42px;">การแปลงเลขฐานสอง เป็นฐานสิบหก โดยไม่ต้องผ่านฐานสิบ</font>
+            <section data-background-image="001.jpg" id="chapter7" data-transition="linear" data-state="state7">
+                <h3 class="fragment" data-fragment-index="0" style="text-align:left;">
+                    <font style="font-size: 42px; color: rgb(0, 0, 0);">การแปลงเลขฐานสอง เป็นฐานสิบหก โดยไม่ต้องผ่านฐานสิบ</font>
                 </h3>
-                <h2>
-                    <div class="fragment" data-fragment-index="0" style="font-size: 36.23188400268555px; font-style: normal; font-variant: normal; color: rgb(0, 0, 0);">
-                    </div>
-                    <div style="font-size: 36.23188400268555px; font-style: normal; font-variant: normal; color: rgb(0, 0, 0);">
-                        <br>
-                    </div>
-                    <div class="fragment" data-fragment-index="1" style="font-size: 36.23188400268555px; font-style: normal; font-variant: normal; color: rgb(0, 0, 0);">110011101111</div>
-                    <div class="fragment" data-fragment-index="2" style="font-size: 36.23188400268555px; font-style: normal; font-variant: normal; color: rgb(0, 0, 0);">เมื่อจัดกลุ่มทีละ 4 บิต จะได้ 1100 | 1110 | 1111</div>
-                    <div style="font-size: 36.23188400268555px; font-style: normal; font-variant: normal; color: rgb(0, 0, 0);">
-                        <br>
-                    </div>
-                    <div class="fragment" data-fragment-index="3" style="font-size: 36.23188400268555px; font-style: normal; font-variant: normal; color: rgb(0, 0, 0);">1100 มีค่าเป็น 12 = C</div>
-                    <div class="fragment" data-fragment-index="4" style="font-size: 36.23188400268555px; font-style: normal; font-variant: normal; color: rgb(0, 0, 0);">1110 มีค่าเป็น 14 = E</div>
-                    <div class="fragment" data-fragment-index="5" style="font-size: 36.23188400268555px; font-style: normal; font-variant: normal; color: rgb(0, 0, 0);">1111 มีค่าเป็น 15 = F</div>
-                    <div style="font-size: 36.23188400268555px; font-style: normal; font-variant: normal; color: rgb(0, 0, 0);">
-                        <br>
-                    </div>
-                    <div class="fragment" data-fragment-index="6" style="font-size: 36.23188400268555px; font-style: normal; font-variant: normal; color: rgb(0, 0, 0); text-align: left;">&nbsp; &nbsp; &nbsp; &nbsp; ดังนั้น 110011101111 มีค่า CEF</div>
-                </h2>
-            </section>
-            <section data-background-image="001.jpg" id="chapter8">
-                <h2>
-                    <br>
-                </h2>
-                <div>
-                    <div style="font-size: 35.93303680419922px; font-style: normal; font-variant: normal;">
-                        <h3 class="fragment" style="text-align: center; font-style: normal; font-variant: normal;" data-fragment-index="0">การแปลงเลขฐานสอง เป็นฐานสิบ</h3>
-                    </div>
-                    <div style="font-size: 35.93303680419922px; font-style: normal; font-variant: normal;">
-                        <br>
-                    </div>
-                    <div class="fragment" style="font-size: 35.93303680419922px; font-style: normal; font-variant: normal;" data-fragment-index="1">10011</div>
-                    <div style="font-size: 35.93303680419922px; font-style: normal; font-variant: normal;">
-                        <br>
-                    </div>
-                    <div class="fragment" style="text-align: left; font-size: 35.93303680419922px; font-style: normal; font-variant: normal;" data-fragment-index="2">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 1 x 2^4 + 0 x 2^3 + 0 x 2^2 + 1 x 2^1 + 1 x 2^0</div>
-                    <div class="fragment" style="text-align: left; font-size: 35.93303680419922px; font-style: normal; font-variant: normal;" data-fragment-index="3">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; = 16 + 0 + 0 + 2 + 1</div>
-                    <div class="fragment" style="text-align: left; font-size: 35.93303680419922px; font-style: normal; font-variant: normal;" data-fragment-index="4">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; = 19</div>
-                    <div style="font-size: 35.93303680419922px; font-style: normal; font-variant: normal;">
-                        <br>
-                    </div>
-                    <div class="fragment" style="font-size: 35.93303680419922px; font-style: normal; font-variant: normal; text-align: left;" data-fragment-index="5">&nbsp; &nbsp; &nbsp; &nbsp; ดังนั้น 10011 มีค่า 19</div>
+                <div class="fragment" data-fragment-index="0" style="font-size: 36.23188400268555px; font-style: normal; font-variant: normal; color: rgb(0, 0, 0);">
                 </div>
-            </section>
-            <section data-background-image="001.jpg" id="chapter9">
-                <h2>
+                <div style="font-size: 36.23188400268555px; font-style: normal; font-variant: normal; color: rgb(0, 0, 0);">
                     <br>
-                </h2>
+                </div>
+                <div class="fragment" data-fragment-index="1"><font style="font-size: 32px; color: rgb(0, 0, 0);">110011101111<font style="font-size: 16px;"><sub>2</sub></font></font></div>
+                <div class="fragment" data-fragment-index="2"><font style="font-size: 32px; color: rgb(0, 0, 0);">เมื่อจัดกลุ่มทีละ 4 บิต จะได้ 1100 | 1110 | 1111</font></div>
+                <div style="font-size: 36.23188400268555px; font-style: normal; font-variant: normal; color: rgb(0, 0, 0);">
+                    <br>
+                </div>
+                <div class="fragment" data-fragment-index="3"><font style="font-size: 32px; color: rgb(0, 0, 0);">1100 มีค่าเป็น 12 = C<font style="font-size: 16px;"><sub>16</sub></font></font></div>
+                <div class="fragment" data-fragment-index="4"><font style="font-size: 32px; color: rgb(0, 0, 0);">1110 มีค่าเป็น 14 = E<font style="font-size: 16px;"><sub>16</sub></font></font></div>
+                <div class="fragment" data-fragment-index="5"><font style="font-size: 32px; color: rgb(0, 0, 0);">1111 มีค่าเป็น 15 = F<font style="font-size: 16px;"><sub>16</sub></font></font></div>
+                <div style="font-size: 36.23188400268555px; font-style: normal; font-variant: normal; color: rgb(0, 0, 0);">
+                    <br>
+                </div>
+                <div class="fragment" data-fragment-index="6" style="font-size: 36.23188400268555px; font-style: normal; font-variant: normal; color: rgb(0, 0, 0); text-align: left;"><font style="font-size: 32px; color: rgb(0, 0, 0);">&nbsp; &nbsp; &nbsp; &nbsp; ดังนั้น 110011101111<font style="font-size: 16px;"><sub>2</sub></font> มีค่า CEF<font style="font-size: 16px;"><sub>16</sub></font></font></div>
+            </section>
+            <section data-background-image="001.jpg" id="chapter8" data-transition="linear" data-state="state8">
+                <div style="font-size: 35.93303680419922px; font-style: normal; font-variant: normal;">
+                    <h3 class="fragment" style="text-align: center; font-style: normal; font-variant: normal;" data-fragment-index="0"><font style="font-size: 42px; color: rgb(0, 0, 0);">การแปลงเลขฐานสอง เป็นฐานสิบ</font></h3>
+                </div>
+                <div style="font-size: 35.93303680419922px; font-style: normal; font-variant: normal;">
+                    <br>
+                </div>
+                <div class="fragment" style="font-size: 35.93303680419922px; font-style: normal; font-variant: normal;" data-fragment-index="1"><font style="font-size: 32px; color: rgb(0, 0, 0);">10011<font style="font-size: 16px;"><sub>2</sub></font></font></div>
+                <div style="font-size: 35.93303680419922px; font-style: normal; font-variant: normal;">
+                    <br>
+                </div>
+                <div class="fragment" style="text-align: left; font-size: 35.93303680419922px; font-style: normal; font-variant: normal;" data-fragment-index="2"><font style="font-size: 32px; color: rgb(0, 0, 0);">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 1 x 2<font style="font-size: 16px;"><sup>4</sup></font> + 0 x 2<font style="font-size: 16px;"><sup>3</sup></font> + 0 x 2<font style="font-size: 16px;"><sup>2</sup></font> + 1 x 2<font style="font-size: 16px;"><sup>1</sup></font> + 1 x 2<font style="font-size: 16px;"><sup>0</sup></font></font></div>
+                <div class="fragment" style="text-align: left; font-size: 35.93303680419922px; font-style: normal; font-variant: normal;" data-fragment-index="3"><font style="font-size: 32px; color: rgb(0, 0, 0);">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; = 16 + 0 + 0 + 2 + 1</font></div>
+                <div class="fragment" style="text-align: left; font-size: 35.93303680419922px; font-style: normal; font-variant: normal;" data-fragment-index="4"><font style="font-size: 32px; color: rgb(0, 0, 0);">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; = 19</font></div>
+                <div style="font-size: 35.93303680419922px; font-style: normal; font-variant: normal;">
+                    <br>
+                </div>
+                <div class="fragment" style="font-size: 35.93303680419922px; font-style: normal; font-variant: normal; text-align: left;" data-fragment-index="5"><font style="font-size: 32px; color: rgb(0, 0, 0);">&nbsp; &nbsp; &nbsp; &nbsp; ดังนั้น 10011<font style="font-size: 16px;"><sub>2</sub></font> มีค่า 19</font></div>
+            </section>
+            <section data-background-image="001.jpg" id="chapter9" data-transition="linear" data-state="state9">
                 <div>
                     <div style="font-size: 35.93303680419922px; font-style: normal; font-variant: normal;">
-                        <h3 class="fragment" style="font-style: normal; font-variant: normal;" data-fragment-index="0">การแปลงเลขฐานแปด เป็นฐานสิบ</h3>
+                        <h3 class="fragment" style="font-style: normal; font-variant: normal;" data-fragment-index="0"><font style="font-size: 42px; color: rgb(0, 0, 0);">การแปลงเลขฐานแปด เป็นฐานสิบ</font></h3>
                     </div>
                     <div style="font-size: 35.93303680419922px; font-style: normal; font-variant: normal;">
                         <br>
                     </div>
-                    <div class="fragment" style="font-size: 35.93303680419922px; font-style: normal; font-variant: normal;" data-fragment-index="1">252</div>
+                    <div class="fragment" style="font-size: 35.93303680419922px; font-style: normal; font-variant: normal;" data-fragment-index="1"><font style="font-size: 32px; color: rgb(0, 0, 0);">252<font style="font-size: 16px;"><sub>8</sub></font></font></div>
                     <div style="font-size: 35.93303680419922px; font-style: normal; font-variant: normal;">
                         <br>
                     </div>
-                    <div class="fragment" style="font-size: 35.93303680419922px; font-style: normal; font-variant: normal; text-align: left;" data-fragment-index="2">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 2 x 8^2 + 5 x 8^1 + 2 x 8^0</div>
-                    <div class="fragment" style="font-size: 35.93303680419922px; font-style: normal; font-variant: normal; text-align: left;" data-fragment-index="3">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; = 128 + 40 + 2</div>
-                    <div class="fragment" style="font-size: 35.93303680419922px; font-style: normal; font-variant: normal; text-align: left;" data-fragment-index="4">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; = 170</div>
+                    <div class="fragment" style="font-size: 35.93303680419922px; font-style: normal; font-variant: normal; text-align: left;" data-fragment-index="2"><font style="font-size: 32px; color: rgb(0, 0, 0);">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 2 x 8<font style="font-size: 16px;"><sup>2</sup></font> + 5 x 8<font style="font-size: 16px;"><sup>1</sup></font> + 2 x 8<font style="font-size: 16px;"><sup>0</sup></font></font></div>
+                    <div class="fragment" style="font-size: 35.93303680419922px; font-style: normal; font-variant: normal; text-align: left;" data-fragment-index="3"><font style="font-size: 32px; color: rgb(0, 0, 0);">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; = 128 + 40 + 2</font></div>
+                    <div class="fragment" style="font-size: 35.93303680419922px; font-style: normal; font-variant: normal; text-align: left;" data-fragment-index="4"><font style="font-size: 32px; color: rgb(0, 0, 0);">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; = 170</font></div>
                     <div style="font-size: 35.93303680419922px; font-style: normal; font-variant: normal;">
                         <br>
                     </div>
-                    <div class="fragment" style="font-size: 35.93303680419922px; font-style: normal; font-variant: normal; text-align: left;" data-fragment-index="5">&nbsp; &nbsp; &nbsp; &nbsp; ดังนั้น 252 มีค่า 170</div>
+                    <div class="fragment" style="font-size: 35.93303680419922px; font-style: normal; font-variant: normal; text-align: left;" data-fragment-index="5"><font style="font-size: 32px; color: rgb(0, 0, 0);">&nbsp; &nbsp; &nbsp; &nbsp; ดังนั้น 252<font style="font-size: 16px;"><sub>8</sub></font> มีค่า 170</font></div>
                 </div>
             </section>
-            <section data-background-image="001.jpg" id="chapter10">
-                <h2>
-                    <br>
-                </h2>
+            <section data-background-image="001.jpg" id="chapter10" data-transition="linear" data-state="state10">
                 <div>
                     <div style="font-size: 35.93303680419922px; font-style: normal; font-variant: normal;">
-                        <h3 class="fragment" style="font-style: normal; font-variant: normal;" data-fragment-index="0">การแปลงเลขฐานสอง เป็นฐานสิบ</h3>
+                        <h3 class="fragment" style="font-style: normal; font-variant: normal;" data-fragment-index="0"><font style="font-size: 42px; color: rgb(0, 0, 0);">การแปลงเลขฐานสิบหก เป็นฐานสิบ</font></h3>
                     </div>
                     <div style="font-size: 35.93303680419922px; font-style: normal; font-variant: normal;">
                         <br>
                     </div>
-                    <div class="fragment" style="font-size: 35.93303680419922px; font-style: normal; font-variant: normal;" data-fragment-index="1">AF</div>
+                    <div class="fragment" style="font-size: 35.93303680419922px; font-style: normal; font-variant: normal;" data-fragment-index="1"><font style="font-size: 32px; color: rgb(0, 0, 0);">AF<font style="font-size: 16px;"><sub>16</sub></font></font></div>
                     <div style="font-size: 35.93303680419922px; font-style: normal; font-variant: normal;">
                         <br>
                     </div>
-                    <div class="fragment" style="font-size: 35.93303680419922px; font-style: normal; font-variant: normal; text-align: left;" data-fragment-index="2">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 10 x 16^1 + 15</div>
-                    <div class="fragment" style="font-size: 35.93303680419922px; font-style: normal; font-variant: normal; text-align: left;" data-fragment-index="3">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;= 160 + 15</div>
-                    <div class="fragment" style="font-size: 35.93303680419922px; font-style: normal; font-variant: normal; text-align: left;" data-fragment-index="4">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;= 175</div>
+                    <div class="fragment" style="font-size: 35.93303680419922px; font-style: normal; font-variant: normal; text-align: left;" data-fragment-index="2"><font style="font-size: 32px; color: rgb(0, 0, 0);">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 10 x 16<font style="font-size: 16px;"><sup>1</sup></font> + 15</font></div>
+                    <div class="fragment" style="font-size: 35.93303680419922px; font-style: normal; font-variant: normal; text-align: left;" data-fragment-index="3"><font style="font-size: 32px; color: rgb(0, 0, 0);">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;= 160 + 15</font></div>
+                    <div class="fragment" style="font-size: 35.93303680419922px; font-style: normal; font-variant: normal; text-align: left;" data-fragment-index="4"><font style="font-size: 32px; color: rgb(0, 0, 0);">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;= 175</font></div>
                     <div style="font-size: 35.93303680419922px; font-style: normal; font-variant: normal;">
                         <br>
                     </div>
-                    <div class="fragment" style="font-size: 35.93303680419922px; font-style: normal; font-variant: normal; text-align: left;" data-fragment-index="5">&nbsp; &nbsp; &nbsp; &nbsp; ดังนั้น AF มีค่า 175</div>
+                    <div class="fragment" style="font-size: 35.93303680419922px; font-style: normal; font-variant: normal; text-align: left;" data-fragment-index="5"><font style="font-size: 32px; color: rgb(0, 0, 0);">&nbsp; &nbsp; &nbsp; &nbsp; ดังนั้น AF<font style="font-size: 16px;"><sub>16</sub></font> มีค่า 175</font></div>
                 </div>
             </section>
-            <section data-background-image="001.jpg">
-                <h2>
-                    <br>
-                </h2>
-                <div>
-                    <br>
-                </div>
-                <div>
-                    <br>
-                </div>
-                <div>จบการนำเสนอ</div>
+            <section data-background-image="001.jpg" data-transition="linear" data-state="state11">
+                <div><font style="font-size: 42px; color: rgb(0, 0, 0);">จบการนำเสนอ</font></div>
             </section>
         </div>
     </div>
@@ -712,7 +811,7 @@
         autoSlide: 0,
         mouseWheel: false,
         transitionSpeed: 'default',
-        backgroundTransition: 'default',
+        backgroundTransition: 'slide',
 
         theme: Reveal.getQueryHash().theme,
         transition: Reveal.getQueryHash().transition || 'default'
