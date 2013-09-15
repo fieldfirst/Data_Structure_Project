@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="UTF-8">
 <head>
     <title>การแปลงเลขฐาน - บทเรียน</title>
@@ -86,6 +86,12 @@
         });
     }
 
+    function hideHover(){
+        $(".has_popover").each(function(){
+            $(this).popover('hide');
+        });
+    }
+
     window.onload = function(){
 
         $("body").css("display", "none");
@@ -131,6 +137,7 @@
         });
 
         btn_back.click(function(){
+            hideHover();
             Reveal.prev();
         });
 
@@ -318,6 +325,22 @@
                 break;
         }
 
+        Reveal.addEventListener('fragmentshown', function(event){
+
+            switch (event.fragment.getAttribute("id")){
+                case "summonHover1" : $("#hover1").popover('show'); break;
+                case "summonHover2" : $("#hover2").popover('show'); break;
+                case "summonHover3" : $("#hover3").popover('show'); break;
+                case "summonHover4" : $("#hover4").popover('show'); break;
+                case "summonHover5" : $("#hover5").popover('show'); break;
+                case "summonHover6" : $("#hover6").popover('show'); break;
+                case "summonHover7" : $("#hover7").popover('show'); break;
+                case "summonHover8" : $("#hover8").popover('show'); break;
+                case "clearHover" : hideHover(); break;
+            }
+
+        });
+
     }
 
     </script>
@@ -500,14 +523,13 @@
 </div>
 
 <!-- begin page body -->
-
 <div class="reveal">
     <div class="slides">
         <section data-background-image="001.jpg" id="chapter1" data-transition="linear" data-state="state1">
             <h3 class="fragment" data-fragment-index="0">
                 <font style="font-size: 42px; color: rgb(0, 0, 0);">ระบบเลขฐาน</font>
             </h3>
-            <p style="text-align: justify;" class="fragment" data-fragment-index="1">
+            <p style="text-align: justify;" class="fragment has_popover" data-fragment-index="1">
                 <span style="background-color: rgba(255, 255, 255, 0.0470588); text-align: left; color: rgb(0, 0, 0);">
                     <font style="font-size: 32px;">&nbsp; เป็นสัญลักษณ์ทางคณิตศาสตร์ที่แสดงถึงจำนวนต่างๆ ระบบเลขแต่ละระบบมีจำนวนตัวเลขที่ใช้เหมือนกับชื่อของระบบเลขนั้น และมีฐานของจำนวนเลขตามชื่อของมัน เช่น เลขฐานสอง ฐานแปด ฐานสิบ และฐานสิบหก เป็นต้น โดยในตอนหลังเราจะมาดูหลักการแปลงเลขขั้นพื้นฐานของเลขฐานสำคัญๆ </font>
                     <font style="font-size: 32px;">กัน</font>
@@ -548,33 +570,42 @@
             <div>
                 <br>
             </div>
-            <div class="fragment" data-fragment-index="1">
+            <div class="fragment has_popover" data-fragment-index="1" id="hover1" data-placement="bottom" data-html="true" data-content="<font style='font-size: 18px; color: rgb(0, 0, 0);'>การแปลงจากฐานสิบ เป็นฐานสอง ใช้สองหารตลอด</font>" data-toggle="popover">
                 <font style="font-size: 32px; color: rgb(0, 0, 0);">2 )<u>&nbsp; 19 &nbsp;</u>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</font>
             </div>
-            <div class="fragment" data-fragment-index="2">
+            <span class="fragment" id="summonHover1" data-fragment-index="2"></span>
+            <span class="fragment" id="clearHover" data-fragment-index="3"></span>
+
+            <div class="fragment has_popover" data-fragment-index="4" id="hover2" data-placement="bottom" data-html="true" data-content="<font style='font-size: 18px; color: rgb(0, 0, 0);'>หากหารแล้วได้เศษ ต้องนำเศษมาเขียนไว้ด้านข้าง</font>" data-toggle="popover">
                 <font style="font-size: 32px; color: rgb(0, 0, 0);">2 )<u>&nbsp; &nbsp;9 &nbsp; &nbsp;</u> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;เศษ 1</font>
             </div>
-            <div class="fragment" data-fragment-index="3">
+            <span class="fragment" id="summonHover2" data-fragment-index="5"></span>
+            <span class="fragment" id="clearHover" data-fragment-index="6"></span>
+
+            <div class="fragment" data-fragment-index="7">
                 <font style="font-size: 32px; color: rgb(0, 0, 0);">2 )<u>&nbsp; &nbsp;4 &nbsp; &nbsp;</u> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;เศษ 1</font>
             </div>
-            <div class="fragment" data-fragment-index="4">
+            <div class="fragment" data-fragment-index="8">
                 <font style="font-size: 32px; color: rgb(0, 0, 0);">2 )<u> &nbsp; 2 &nbsp; &nbsp;</u> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;เศษ 0</font>
             </div>
-            <div class="fragment" data-fragment-index="5">
+            <div class="fragment" data-fragment-index="9">
                 <font style="font-size: 32px; color: rgb(0, 0, 0);">2 )<u>&nbsp;<span style="font-style: normal; font-variant: normal;">&nbsp; 1 &nbsp;&nbsp;</span>
                 </u>
                 <u>&nbsp;</u> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;เศษ 0</font>
             </div>
-            <div class="fragment" data-fragment-index="6">
+            <div class="fragment" data-fragment-index="10">
                 <font style="font-size: 32px; color: rgb(0, 0, 0);">&nbsp; 1 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</font>
             </div>
-            <div style="text-align: left; " class="fragment" data-fragment-index="7">
-                <font style="font-size: 32px; color: rgb(0, 0, 0);">&nbsp; &nbsp; &nbsp; &nbsp; คำตอบที่ได้คือ 19 คือ 11011<font style="font-size: 16px;"><sub>2</sub></font></font>
+            <div style="text-align: left; " class="fragment has_popover" data-fragment-index="11" id="hover3" data-placement="top" data-html="true" data-content="<font style='font-size: 18px; color: rgb(0, 0, 0);'>คำตอบได้จาก การเขียนเศษเรียงกันจากล่างไปบน</font>" data-toggle="popover">
+                <font style="font-size: 32px; color: rgb(0, 0, 0);">&nbsp; &nbsp; &nbsp; &nbsp; คำตอบที่ได้คือ 19 คือ 10011<font style="font-size: 16px;"><sub>2</sub></font></font>
             </div>
-            <div style="text-align: left; " class="fragment" data-fragment-index="8">
+            <span class="fragment" id="summonHover3" data-fragment-index="12"></span>
+            <span class="fragment" id="clearHover" data-fragment-index="13"></span>
+
+            <div style="text-align: left; " class="fragment" data-fragment-index="14">
                 <font style="font-size: 32px; color: rgb(0, 0, 0);">&nbsp; &nbsp; &nbsp; &nbsp; การแปลงเลขฐานสิบ เป็นฐานอื่นๆ ก็ใช้วิธีเดียวกันกับตัวอย่างนี้</font>
             </div>
-            <div style="text-align: left; " class="fragment" data-fragment-index="8">
+            <div style="text-align: left; " class="fragment" data-fragment-index="15">
                 <font style="font-size: 32px; color: rgb(0, 0, 0);">&nbsp; &nbsp; &nbsp; &nbsp; (แค่เปลี่ยนตัวหาร)</font>
             </div>
             <br>
@@ -587,16 +618,20 @@
                 <div>
                     <br>
                 </div>
-                <div class="fragment" style="font-style: normal; font-variant: normal;" data-fragment-index="1">
+                <div class="fragment has_popover" style="font-style: normal; font-variant: normal;" data-fragment-index="1" id="hover4" data-placement="bottom" data-html="true" data-content="<font style='font-size: 18px; color: rgb(0, 0, 0);'>การแปลงจากฐานสิบ เป็นฐานแปด ก็เช่นกัน ต้องใช้แปดหารตลอด</font>" data-toggle="popover">
                     <font style="font-size: 32px; color: rgb(0, 0, 0);">8 )<u>&nbsp;170 </u>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</font>
                 </div>
-                <div class="fragment" style="font-style: normal; font-variant: normal;" data-fragment-index="2">
+
+                <span class="fragment" id="summonHover4" data-fragment-index="2"></span>
+                <span class="fragment" id="clearHover" data-fragment-index="3"></span>
+
+                <div class="fragment" style="font-style: normal; font-variant: normal;" data-fragment-index="4">
                     <font style="font-size: 32px; color: rgb(0, 0, 0);">8 )<u>&nbsp; 21 &nbsp;</u>&nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;เศษ 2</font>
                 </div>
-                <div class="fragment" style="font-style: normal; font-variant: normal;" data-fragment-index="3">
+                <div class="fragment" style="font-style: normal; font-variant: normal;" data-fragment-index="5">
                     <font style="font-size: 32px; color: rgb(0, 0, 0);">8 )<u> &nbsp; 2 &nbsp; &nbsp;</u> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;เศษ 5</font>
                 </div>
-                <div class="fragment" style="font-style: normal; font-variant: normal;" data-fragment-index="4">
+                <div class="fragment" style="font-style: normal; font-variant: normal;" data-fragment-index="6">
                     <font style="font-size: 32px; color: rgb(0, 0, 0);">
                         <span>&nbsp; &nbsp; &nbsp; &nbsp;2 &nbsp; &nbsp; &nbsp; &nbsp;</span>
                         <span>&nbsp;</span>
@@ -606,7 +641,7 @@
                 <div>
                     <br>
                 </div>
-                <div class="fragment" style="font-style: normal; font-variant: normal; text-align: left;" data-fragment-index="5">
+                <div class="fragment" style="font-style: normal; font-variant: normal; text-align: left;" data-fragment-index="7">
                     <font style="font-size: 32px; color: rgb(0, 0, 0);">&nbsp; &nbsp; &nbsp; &nbsp; คำตอบที่ได้คือ 170 คือ 252<font style="font-size: 16px;"><sub>8</sub></font></font>
                 </div>
             </div>
@@ -644,11 +679,14 @@
                         <font style="font-size: 32px; color: rgb(0, 0, 0);">&nbsp; &nbsp; &nbsp; &nbsp; คำตอบที่ได้คือ 195 คือ AF<font style="font-size: 16px;"><sub>16</sub></font></font>
                     </div>
                 </div>
-                <div class="fragment" style="font-style: normal; font-variant: normal; text-align: left;" data-fragment-index="5">
+                <div class="fragment has_popover" style="font-style: normal; font-variant: normal; text-align: left;" data-fragment-index="5" id="hover5" data-placement="top" data-html="true" data-content="<font style='font-size: 18px; color: rgb(0, 0, 0);'>ตรงนี้ต้อง ระวัง</font>" data-toggle="popover">
                     <font style="font-size: 32px; color: rgb(0, 0, 0);">&nbsp; &nbsp; &nbsp; &nbsp; เมื่อ A = 10, B = 11, C = 12, D = 13, E = 14 และ F = 15</font>
                 </div>
 
-            </section>
+            <span class="fragment" id="summonHover5" data-fragment-index="6"></span>
+            <span class="fragment" id="clearHover" data-fragment-index="7"></span>
+
+        </section>
             <section data-background-image="006.jpg" id="chapter6" data-transition="linear" data-state="state6">
                 <div class="fragment" data-fragment-index="0">
                     <h3 style="text-align: left;">
@@ -707,13 +745,17 @@
                 <div style="font-size: 35.93303680419922px; font-style: normal; font-variant: normal;">
                     <br>
                 </div>
-                <div class="fragment" style="text-align: left; font-size: 35.93303680419922px; font-style: normal; font-variant: normal;" data-fragment-index="2"><font style="font-size: 32px; color: rgb(0, 0, 0);">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 1 x 2<font style="font-size: 16px;"><sup>4</sup></font> + 0 x 2<font style="font-size: 16px;"><sup>3</sup></font> + 0 x 2<font style="font-size: 16px;"><sup>2</sup></font> + 1 x 2<font style="font-size: 16px;"><sup>1</sup></font> + 1 x 2<font style="font-size: 16px;"><sup>0</sup></font></font></div>
-                <div class="fragment" style="text-align: left; font-size: 35.93303680419922px; font-style: normal; font-variant: normal;" data-fragment-index="3"><font style="font-size: 32px; color: rgb(0, 0, 0);">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; = 16 + 0 + 0 + 2 + 1</font></div>
-                <div class="fragment" style="text-align: left; font-size: 35.93303680419922px; font-style: normal; font-variant: normal;" data-fragment-index="4"><font style="font-size: 32px; color: rgb(0, 0, 0);">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; = 19</font></div>
+                <div class="fragment has_popover" style="text-align: left; font-size: 35.93303680419922px; font-style: normal; font-variant: normal;" data-fragment-index="2" id="hover6" data-placement="bottom" data-html="true" data-content="<font style='font-size: 18px; color: rgb(0, 0, 0);'>การแปลงจากฐานสอง เป็นฐานสิบ ต้องคูณแต่ละหลัก ด้วยสองยกกำลังด้วยตำแหน่ง(หากเป็นทศนิยม หลังทศนิยม จะยกกำลังติดลบ)</font>" data-toggle="popover"><font style="font-size: 32px; color: rgb(0, 0, 0);">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 1 x 2<font style="font-size: 16px;"><sup>4</sup></font> + 0 x 2<font style="font-size: 16px;"><sup>3</sup></font> + 0 x 2<font style="font-size: 16px;"><sup>2</sup></font> + 1 x 2<font style="font-size: 16px;"><sup>1</sup></font> + 1 x 2<font style="font-size: 16px;"><sup>0</sup></font></font></div>
+                <span class="fragment" id="summonHover6" data-fragment-index="3"></span>
+                <span class="fragment" id="clearHover" data-fragment-index="4"></span>
+                <div class="fragment has_popover" style="text-align: left; font-size: 35.93303680419922px; font-style: normal; font-variant: normal;" data-fragment-index="5" id="hover7" data-placement="top" data-html="true" data-content="<font style='font-size: 18px; color: rgb(0, 0, 0);'>คำตอบได้จากการบวกจำนวนแต่ละหลัก ที่ถูกคูณแล้ว</font>" data-toggle="popover"><font style="font-size: 32px; color: rgb(0, 0, 0);">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; = 16 + 0 + 0 + 2 + 1</font></div>
+                <span class="fragment" id="summonHover7" data-fragment-index="6"></span>
+                <span class="fragment" id="clearHover" data-fragment-index="7"></span>
+                <div class="fragment" style="text-align: left; font-size: 35.93303680419922px; font-style: normal; font-variant: normal;" data-fragment-index="8"><font style="font-size: 32px; color: rgb(0, 0, 0);">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; = 19</font></div>
                 <div style="font-size: 35.93303680419922px; font-style: normal; font-variant: normal;">
                     <br>
                 </div>
-                <div class="fragment" style="font-size: 35.93303680419922px; font-style: normal; font-variant: normal; text-align: left;" data-fragment-index="5"><font style="font-size: 32px; color: rgb(0, 0, 0);">&nbsp; &nbsp; &nbsp; &nbsp; ดังนั้น 10011<font style="font-size: 16px;"><sub>2</sub></font> มีค่า 19</font></div>
+                <div class="fragment" style="font-size: 35.93303680419922px; font-style: normal; font-variant: normal; text-align: left;" data-fragment-index="9"><font style="font-size: 32px; color: rgb(0, 0, 0);">&nbsp; &nbsp; &nbsp; &nbsp; ดังนั้น 10011<font style="font-size: 16px;"><sub>2</sub></font> มีค่า 19</font></div>
             </section>
             <section data-background-image="009.jpg" id="chapter9" data-transition="linear" data-state="state9">
                 <div>
@@ -727,13 +769,15 @@
                     <div style="font-size: 35.93303680419922px; font-style: normal; font-variant: normal;">
                         <br>
                     </div>
-                    <div class="fragment" style="font-size: 35.93303680419922px; font-style: normal; font-variant: normal; text-align: left;" data-fragment-index="2"><font style="font-size: 32px; color: rgb(0, 0, 0);">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 2 x 8<font style="font-size: 16px;"><sup>2</sup></font> + 5 x 8<font style="font-size: 16px;"><sup>1</sup></font> + 2 x 8<font style="font-size: 16px;"><sup>0</sup></font></font></div>
-                    <div class="fragment" style="font-size: 35.93303680419922px; font-style: normal; font-variant: normal; text-align: left;" data-fragment-index="3"><font style="font-size: 32px; color: rgb(0, 0, 0);">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; = 128 + 40 + 2</font></div>
-                    <div class="fragment" style="font-size: 35.93303680419922px; font-style: normal; font-variant: normal; text-align: left;" data-fragment-index="4"><font style="font-size: 32px; color: rgb(0, 0, 0);">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; = 170</font></div>
+                    <div class="fragment has_popover" style="font-size: 35.93303680419922px; font-style: normal; font-variant: normal; text-align: left;" data-fragment-index="2" id="hover8" data-placement="bottom" data-html="true" data-content="<font style='font-size: 18px; color: rgb(0, 0, 0);'>การแปลงจากฐานแปด เป็นฐานสิบ ก็เช่นกัน ต้องคูณแต่ละหลักด้วยแปดยกกำลังด้วยตำแหน่ง</font>" data-toggle="popover"><font style="font-size: 32px; color: rgb(0, 0, 0);">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 2 x 8<font style="font-size: 16px;"><sup>2</sup></font> + 5 x 8<font style="font-size: 16px;"><sup>1</sup></font> + 2 x 8<font style="font-size: 16px;"><sup>0</sup></font></font></div>
+                    <span class="fragment" id="summonHover8" data-fragment-index="3"></span>
+                    <span class="fragment" id="clearHover" data-fragment-index="4"></span>
+                    <div class="fragment" style="font-size: 35.93303680419922px; font-style: normal; font-variant: normal; text-align: left;" data-fragment-index="5"><font style="font-size: 32px; color: rgb(0, 0, 0);">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; = 128 + 40 + 2</font></div>
+                    <div class="fragment" style="font-size: 35.93303680419922px; font-style: normal; font-variant: normal; text-align: left;" data-fragment-index="6"><font style="font-size: 32px; color: rgb(0, 0, 0);">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; = 170</font></div>
                     <div style="font-size: 35.93303680419922px; font-style: normal; font-variant: normal;">
                         <br>
                     </div>
-                    <div class="fragment" style="font-size: 35.93303680419922px; font-style: normal; font-variant: normal; text-align: left;" data-fragment-index="5"><font style="font-size: 32px; color: rgb(0, 0, 0);">&nbsp; &nbsp; &nbsp; &nbsp; ดังนั้น 252<font style="font-size: 16px;"><sub>8</sub></font> มีค่า 170</font></div>
+                    <div class="fragment" style="font-size: 35.93303680419922px; font-style: normal; font-variant: normal; text-align: left;" data-fragment-index="7"><font style="font-size: 32px; color: rgb(0, 0, 0);">&nbsp; &nbsp; &nbsp; &nbsp; ดังนั้น 252<font style="font-size: 16px;"><sub>8</sub></font> มีค่า 170</font></div>
                 </div>
             </section>
             <section data-background-image="010.jpg" id="chapter10" data-transition="linear" data-state="state10">
@@ -759,7 +803,7 @@
             </section>
             <section data-background-image="011.jpg" data-transition="linear" data-state="state11">
                 <div><font style="font-size: 42px; color: rgb(0, 0, 0);">จบการนำเสนอ</font></div>
-            </section>
+                <div><font style="font-size: 32px; color: rgb(0, 0, 0);">คุณสามารถทบทวนบทเรียนได้โดยคลิก แทบ "<span class="glyphicon glyphicon-pencil"></span> แบบฝึกหัด" ด้านบน
         </div>
     </div>
 </div>
@@ -801,7 +845,7 @@
         controls: false,
         progress: true,
         history: false,
-        keyboard: true,
+        keyboard: false,
         touch: false,
         overview: true,
         center: true,
